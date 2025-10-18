@@ -17,30 +17,40 @@ use App\Http\Controllers\UmkmController;
 Route::get('/umkm', [UmkmController::class, 'index']);
 
 
+
+
+
+
+
+
 use App\Http\Controllers\AuthController;
 
-// Halaman utama redirect ke login
-Route::get('/', [AuthController::class, 'index'])->name('login.page');
 
-// Halaman login
-Route::get('/login', [AuthController::class, 'index'])->name('login.page');
-Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 
-// Halaman register
-Route::get('/register', function () {
-    return view('pages.register', ['title' => 'Register']);
-})->name('register.page');
-Route::post('/register', [AuthController::class, 'register'])->name('auth.register');
+Route::get('/login', [AuthController::class, 'index'])->name('login.form');
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 
-// Halaman dashboard setelah login
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Contoh route yang dilindungi login
 Route::get('/dashboard', function () {
-    return view('dashboard', ['title' => 'Dashboard']);
-})->name('dashboard');
+    return view('adminUmkm.index');
+})->name('index');
 
-// Halaman about (pastikan ada file resources/views/about.blade.php)
 Route::get('/about', function () {
-    return view('about', ['title' => 'About']);
+    return view('adminUmkm.about');
 })->name('about');
 
-// Halaman UMKM
-Route::get('/umkm', [UmkmController::class, 'index'])->name('umkm');
+Route::get('/product', function () {
+    return view('adminUmkm.product');
+})->name('product');
+
+Route::get('/store', function () {
+    return view('adminUmkm.store');
+})->name('store');
+
+
+Route::get('/contact', function () {
+    return view('adminUmkm.contact');
+})->name('contact');

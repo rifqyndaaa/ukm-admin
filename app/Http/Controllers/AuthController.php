@@ -1,60 +1,110 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    // ===============================
-    // 1️⃣ Tampilkan Halaman Login
-    // ===============================
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        return view('pages.login', ['title' => 'Login']);
+        return view('login');
     }
 
-    // ===============================
-    // 2️⃣ Logika Proses Login
-    // ===============================
     public function login(Request $request)
     {
-        $username = $request->username;
-        $password = $request->password;
-
-        // Logika sederhana: username = nim dan password = nim
-        if ($username === $password) {
-            // Flashdata dan redirect ke Dashboard
-            return redirect()->route('dashboard')->with('success', 'Selamat Datang Admin!');
-        }
-
-        // Jika gagal login
-        return back()->with('error', 'Username atau Password salah!');
-    }
-
-    // ===============================
-    // 3️⃣ Logika Proses Register
-    // ===============================
-    public function register(Request $request)
-    {
+        // Validasi input
         $request->validate([
-            'nama' => ['required', 'regex:/^[A-Za-z\s]+$/'], // tidak boleh ada angka
-            'alamat' => 'required|max:300',
-            'tanggal_lahir' => 'required|date',
-            'username' => 'required',
+            'email'    => 'required|email',
             'password' => [
                 'required',
-                'min:6',
-                'regex:/^(?=.*[A-Z])(?=.*\d).+$/'
+                'min:3',
+                'regex:/[A-Z]/', // wajib ada huruf kapital
             ],
-            'confirm_password' => 'required|same:password'
         ], [
-            'nama.regex' => 'Nama tidak boleh mengandung angka.',
-            'password.regex' => 'Password harus mengandung huruf kapital dan angka.',
-            'confirm_password.same' => 'Konfirmasi password tidak sama!'
+            'email.required'    => 'Email wajib diisi!',
+            'email.email'       => 'Format email tidak valid!',
+            'password.required' => 'Password wajib diisi!',
+            'password.min'      => 'Password minimal 3 karakter!',
+            'password.regex'    => 'Password harus mengandung huruf kapital!',
         ]);
 
-        // Simulasi: data tersimpan (bisa disimpan ke database jika sudah siap)
-        return redirect()->route('login.page')->with('success', 'Registrasi berhasil! Silakan Login.');
+        // 🔹 Contoh data user (disimulasikan)
+        $users = [
+            [
+                'email'    => 'rifqi@gmail.com',
+                'password' => 'UserABC', // password benar
+                'name'     => 'Arya',
+            ],
+        ];
+
+        // Cek apakah email dan password cocok
+        $found = collect($users)->first(function ($user) use ($request) {
+            return $user['email'] === $request->email && $user['password'] === $request->password;
+        });
+
+        if ($found) {
+            return redirect()->route('index')->with('success', 'Login berhasil! Selamat datang, ' . $found['name']);
+        } else {
+            return redirect()->back()->with('error', 'Email atau password salah!')->withInput();
+        }
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
+
+    /**
+     * Fungsi tambahan (masih kosong untuk sementara)
+     */
+    public function up()
+    {
+        // Nanti kamu bisa isi di sini sesuai kebutuhanmu
     }
 }
