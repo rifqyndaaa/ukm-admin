@@ -51,7 +51,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                         <a href="{{ route('index')}}" class="nav-item nav-link">Home</a>
+                         <a href="{{ route('umkm.index')}}" class="nav-item nav-link">Home</a>
                           <a href="{{ route('about')}}" class = "nav-item nav-link active">About</a>
                           <a href="{{ route('product')}}" class="nav-item nav-link">Products</a>
                         <a href="{{ route('store')}}" class="nav-item nav-link">Store</a>
@@ -64,7 +64,7 @@
                                 <a href="404.html" class="dropdown-item">404 Page</a>
                             </div>
                         </div>
-                        <a href="{{ route('contact')}}" class="nav-item nav-link">Contact</a>
+                        <a href="{{ route('create')}}" class="nav-item nav-link">Crate</a>
                     </div>
                     <div class="border-start ps-4 d-none d-lg-block">
                         <button type="button" class="btn btn-sm p-0"><i class="fa fa-search"></i></button>

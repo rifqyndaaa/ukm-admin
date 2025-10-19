@@ -21,14 +21,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="asset/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="asset/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="{{ asset('asset/lib/animate/animate.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('asset/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="asset/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('asset/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="asset/css/style.css" rel="stylesheet">
+    <link href="{{ asset('asset/css/style.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -51,10 +51,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="{{ route('umkm.index')}}"class="nav-item nav-link">Home</a>
-                        <a href="{{ route('about')}}" class="nav-item nav-link">About</a>
-                        < <a href="{{ route('product')}}" class="nav-item nav-link active">Products</a>
-                        <a href="{{ route('store')}}" class="nav-item nav-link">Store</a>
+                          <a href="{{ route('umkm.index')}}" class="nav-item nav-link">Home</a>
+                         <a href="{{ route('about')}}" class="nav-item nav-link">About</a>
+                          <a href="{{ route('product')}}" class="nav-item nav-link">Products</a>
+                         <a href="{{ route('store')}}" class="nav-item nav-link">Store</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu bg-light rounded-0 m-0">
@@ -64,7 +64,7 @@
                                 <a href="404.html" class="dropdown-item">404 Page</a>
                             </div>
                         </div>
-                               <a href="{{ route('create')}}" class="nav-item nav-link">Crate</a>
+                         <a href="" class="nav-item nav-link active">Contact</a>
                     </div>
                     <div class="border-start ps-4 d-none d-lg-block">
                         <button type="button" class="btn btn-sm p-0"><i class="fa fa-search"></i></button>
@@ -77,14 +77,14 @@
 
 
     <!-- Page Header Start -->
-    <div class="container-fluid page-header py-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container text-center py-5">
-            <h1 class="display-2 text-dark mb-4 animated slideInDown">Products</h1>
+            <h1 class="display-2 text-dark mb-4 animated slideInDown">Contact Us</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb justify-content-center mb-0">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                    <li class="breadcrumb-item text-dark" aria-current="page">Products</li>
+                    <li class="breadcrumb-item text-dark" aria-current="page">Contact</li>
                 </ol>
             </nav>
         </div>
@@ -92,50 +92,129 @@
     <!-- Page Header End -->
 
 
-    <!-- Products Start -->
-    <div class="container-fluid product py-5">
-        <div class="container py-5">
+    <!-- Contact Start -->
+    <div class="container-xxl contact py-5">
+        <div class="container">
             <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="fs-5 fw-medium fst-italic text-primary">Our Products</p>
-                <h1 class="display-6">Tea has a complex positive effect on the body</h1>
+                <p class="fs-5 fw-medium fst-italic text-primary">Contact Us</p>
+                <h1 class="display-6">If You Have Any Query, Please Contact Us</h1>
             </div>
-            <div class="owl-carousel product-carousel wow fadeInUp" data-wow-delay="0.5s">
-                <a href="" class="d-block product-item rounded">
-                    <img src="asset/img/product-1.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">Green Tea</h4>
-                        <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum</span>
+            <div class="row g-5 mb-5">
+                <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="btn-square mx-auto mb-3">
+                        <i class="fa fa-envelope fa-2x text-white"></i>
                     </div>
-                </a>
-                <a href="" class="d-block product-item rounded">
-                    <img src="asset/img/product-2.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">Black Tea</h4>
-                        <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum</span>
+                    <p class="mb-2">info@example.com</p>
+                    <p class="mb-0">support@example.com</p>
+                </div>
+                <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="btn-square mx-auto mb-3">
+                        <i class="fa fa-phone fa-2x text-white"></i>
                     </div>
-                </a>
-                <a href="" class="d-block product-item rounded">
-                    <img src="asset/img/product-3.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">Spiced Tea</h4>
-                        <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum</span>
+                    <p class="mb-2">+012 345 67890</p>
+                    <p class="mb-0">+012 345 67890</p>
+                </div>
+                <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="btn-square mx-auto mb-3">
+                        <i class="fa fa-map-marker-alt fa-2x text-white"></i>
                     </div>
-                </a>
-                <a href="" class="d-block product-item rounded">
-                    <img src="asset/img/product-4.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">Organic Tea</h4>
-                        <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum</span>
-                    </div>
-                </a>
+                    <p class="mb-2">123 Street</p>
+                    <p class="mb-0">New York, USA</p>
+                </div>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <h3 class="mb-4">Need a functional contact form?</h3>
+                    <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+
+                    <form method="POST" action="{{ route('umkm.update', $umkm) }}" enctype="multipart/form-data">
+    @csrf
+    @method('PUT')
+    <div class="row g-3">
+
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="nama_usaha" name="nama_usaha" value="{{$umkm -> nama_usaha}}" placeholder="Nama Usaha" required>
+                <label for="nama_usaha">Nama Usaha</label>
             </div>
         </div>
+
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="number" class="form-control" id="pemilik_warga_id" name="pemilik_warga_id" value="{{$umkm -> pemilik_warga_id}}" placeholder="ID Pemilik Warga" required>
+                <label for="pemilik_warga_id">ID Pemilik Warga</label>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="alamat" name="alamat" value="{{$umkm -> alamat}}"placeholder="Alamat Lengkap" required>
+                <label for="alamat">Alamat</label>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="rt" name="rt" value="{{$umkm -> rt}}"placeholder="RT">
+                <label for="rt">RT</label>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="rw" name="rw" value="{{$umkm -> rw}}" placeholder="RW">
+                <label for="rw">RW</label>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="kategori" name="kategori" value="{{$umkm -> kategori}}" placeholder="Kategori Usaha">
+                <label for="kategori">Kategori</label>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="kontak" name="kontak" value="{{$umkm -> kontak}}" placeholder="Kontak (Telepon / WA)">
+                <label for="kontak">Kontak</label>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Deskripsi usaha" id="deskripsi" name="deskripsi" value="{{$umkm -> deskripsi}}" style="height: 120px"></textarea>
+                <label for="deskripsi">Deskripsi Usaha</label>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <label for="foto_usaha" class="form-label">Foto Usaha</label>
+            <input class="form-control" type="file" id="foto_usaha" name="foto_usaha" value="{{$umkm -> foto_usaha}}" accept="image/*">
+        </div>
+
+        <div class="col-md-4">
+            <label for="dokumen_izin" class="form-label">Dokumen Izin (PDF)</label>
+            <input class="form-control" type="file" id="dokumen_izin" name="dokumen_izin" value="{{$umkm -> dokumen_izin}}" accept=".pdf">
+        </div>
+
+        <div class="col-md-4">
+            <label for="banner_promosi" class="form-label">Banner Promosi</label>
+            <input class="form-control" type="file" id="banner_promosi" name="banner_promosi" value="{{$umkm -> banner_promosi}}" accept="image/*">
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-primary rounded-pill py-3 px-5 mt-3" type="submit">
+                Simpan Data UMKM
+            </button>
+        </div>
     </div>
-    <!-- Products End -->
+</form>
+
 
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark footer py-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container-fluid bg-dark footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
@@ -205,13 +284,13 @@
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="asset/lib/wow/wow.min.js"></script>
-    <script src="asset/lib/easing/easing.min.js"></script>
-    <script src="asset/lib/waypoints/waypoints.min.js"></script>
-    <script src="asset/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="{{asset('asset/lib/wow/wow.min.js')}}"></script>
+    <script src="{{asset('asset/lib/easing/easing.min.js')}}"></script>
+    <script src="{{asset('asset/lib/waypoints/waypoints.min.js')}}"></script>
+    <script src="{{asset('asset/lib/owlcarousel/owl.carousel.min.js')}}"></script>
 
     <!-- Template Javascript -->
-    <script src="asset/js/main.js"></script>
+    <script src="{{asset('asset/js/main.js')}}"></script>
 </body>
 
 </html>

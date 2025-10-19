@@ -1,43 +1,57 @@
 <?php
-// app/Http/Controllers/UmkmController.php
+
 namespace App\Http\Controllers;
 
+use App\Models\Umkm;
 use Illuminate\Http\Request;
 
 class UmkmController extends Controller
 {
     public function index()
     {
-        // Data dummy UMKM (tanpa model/database)
-        $umkms = [
-            [
-                'nama_usaha' => 'Toko Lena',
-                'pemilik' => 'Lena Mawardah',
-                'alamat' => 'Jl. Melati No. 10',
-                'kategori' => 'Fashion Hijab',
-            ],
-            [
-                'nama_usaha' => 'Warung Sederhana',
-                'pemilik' => 'Budi Santoso',
-                'alamat' => 'Jl. Mawar No. 22',
-                'kategori' => 'Kuliner',
-            ],
-            [
-                'nama_usaha' => 'Kopi Senja',
-                'pemilik' => 'Rizky Putra',
-                'alamat' => 'Jl. Kenanga No. 5',
-                'kategori' => 'Minuman',
-            ],
-                [
-                'nama_usaha' => 'Kopi arya',
-                'pemilik' => 'sukra',
-                'alamat' => 'Jl. umban sari No. 5',
-                'kategori' => 'minuman dan mkananan',
-            ],
-        ];
+        $dataUmkm = Umkm::all();
+        return view('adminUmkm.index', compact('dataUmkm'));
+    }
 
+    public function create()
+    {
+        return view('adminUmkm.create');
+    }
 
-        // Passing ke view
-        return view('admin', compact('umkms'));
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nama_usaha' => 'required|string|max:100',
+            'alamat' => 'required|string|max:255',
+        ]);
+
+        Umkm::create($request->all());
+        return redirect()->route('umkm.index')->with('success', 'Data UMKM berhasil ditambahkan!');
+    }
+
+    public function show(string $id)
+    {
+        $umkm = Umkm::findOrFail($id);
+        return view('adminUmkm.show', compact('umkm'));
+    }
+
+    public function edit(string $id)
+    {
+        $umkm = Umkm::findOrFail($id);
+        return view('adminUmkm.edit', compact('umkm'));
+    }
+
+    public function update(Request $request, string $id)
+    {
+        $umkm = Umkm::findOrFail($id);
+        $umkm->update($request->all());
+        return redirect()->route('umkm.index')->with('success', 'Data UMKM berhasil diupdate!');
+    }
+
+    public function destroy(string $id)
+    {
+        $umkm = Umkm::findOrFail($id);
+        $umkm->delete();
+        return redirect()->route('umkm.index')->with('success', 'Data UMKM berhasil dihapus!');
     }
 }

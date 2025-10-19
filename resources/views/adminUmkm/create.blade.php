@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="{{asset('img/favicon.ico')}}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,14 +21,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="asset/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="asset/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="{{asset('asset/lib/animate/animate.min.css')}}" rel="stylesheet">
+    <link href= "{{asset('asset/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="asset/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('asset/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="asset/css/style.css" rel="stylesheet">
+    <link href="{{asset('asset/css/style.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -51,7 +51,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                          <a href="{{ route('index')}}" class="nav-item nav-link">Home</a>
+                          <a href="{{ route('umkm.index')}}" class="nav-item nav-link">Home</a>
                          <a href="{{ route('about')}}" class="nav-item nav-link">About</a>
                           <a href="{{ route('product')}}" class="nav-item nav-link">Products</a>
                          <a href="{{ route('store')}}" class="nav-item nav-link">Store</a>
@@ -64,7 +64,7 @@
                                 <a href="404.html" class="dropdown-item">404 Page</a>
                             </div>
                         </div>
-                         <a href="{{ route('contact')}}" class="nav-item nav-link active">Contact</a>
+                         <a href="{{ route('create')}}" class="nav-item nav-link active">Crate  </a>
                     </div>
                     <div class="border-start ps-4 d-none d-lg-block">
                         <button type="button" class="btn btn-sm p-0"><i class="fa fa-search"></i></button>
@@ -126,50 +126,89 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <h3 class="mb-4">Need a functional contact form?</h3>
                     <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                    <form>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                    <label for="name">Your Name</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                    <label for="email">Your Email</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                    <label for="subject">Subject</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 120px"></textarea>
-                                    <label for="message">Message</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Send Message</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="h-100">
-                        <iframe class="w-100 rounded"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
-                        frameborder="0" style="height: 100%; min-height: 300px; border:0;" allowfullscreen="" aria-hidden="false"
-                        tabindex="0"></iframe>
-                    </div>
-                </div>
+                   <form method="POST" action="{{ route('umkm.store') }}" enctype="multipart/form-data">
+    @csrf
+    <div class="row g-3">
+
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="nama_usaha" name="nama_usaha" placeholder="Nama Usaha" required>
+                <label for="nama_usaha">Nama Usaha</label>
             </div>
         </div>
+
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="number" class="form-control" id="pemilik_warga_id" name="pemilik_warga_id" placeholder="ID Pemilik Warga" required>
+                <label for="pemilik_warga_id">ID Pemilik Warga</label>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat Lengkap" required>
+                <label for="alamat">Alamat</label>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="rt" name="rt" placeholder="RT">
+                <label for="rt">RT</label>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="rw" name="rw" placeholder="RW">
+                <label for="rw">RW</label>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="kategori" name="kategori" placeholder="Kategori Usaha">
+                <label for="kategori">Kategori</label>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="kontak" name="kontak" placeholder="Kontak (Telepon / WA)">
+                <label for="kontak">Kontak</label>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Deskripsi usaha" id="deskripsi" name="deskripsi" style="height: 120px"></textarea>
+                <label for="deskripsi">Deskripsi Usaha</label>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <label for="foto_usaha" class="form-label">Foto Usaha</label>
+            <input class="form-control" type="file" id="foto_usaha" name="foto_usaha" accept="image/*">
+        </div>
+
+        <div class="col-md-4">
+            <label for="dokumen_izin" class="form-label">Dokumen Izin (PDF)</label>
+            <input class="form-control" type="file" id="dokumen_izin" name="dokumen_izin" accept=".pdf">
+        </div>
+
+        <div class="col-md-4">
+            <label for="banner_promosi" class="form-label">Banner Promosi</label>
+            <input class="form-control" type="file" id="banner_promosi" name="banner_promosi" accept="image/*">
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-primary rounded-pill py-3 px-5 mt-3" type="submit">
+                Simpan Data UMKM
+            </button>
+        </div>
     </div>
-    <!-- Contact End -->
+</form>
+
 
 
     <!-- Footer Start -->
@@ -243,13 +282,13 @@
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="asset/lib/wow/wow.min.js"></script>
-    <script src="asset/lib/easing/easing.min.js"></script>
-    <script src="asset/lib/waypoints/waypoints.min.js"></script>
-    <script src="asset/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="{{asset('asset/lib/wow/wow.min.js')}}"></script>
+    <script src="{{asset('asset/lib/easing/easing.min.js')}}"></script>
+    <script src="{{asset('asset/lib/waypoints/waypoints.min.js')}}"></script>
+    <script src="{{asset('asset/lib/owlcarousel/owl.carousel.min.js')}}"></script>
 
     <!-- Template Javascript -->
-    <script src="asset/js/main.js"></script>
+    <script src="{{asset('asset/js/main.js')}}"></script>
 </body>
 
 </html>

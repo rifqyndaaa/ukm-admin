@@ -36,7 +36,7 @@ class AuthController extends Controller
             [
                 'email'    => 'rifqi@gmail.com',
                 'password' => 'UserABC', // password benar
-                'name'     => 'Arya',
+                'name'     => 'rifqi',
             ],
         ];
 
@@ -46,7 +46,7 @@ class AuthController extends Controller
         });
 
         if ($found) {
-            return redirect()->route('index')->with('success', 'Login berhasil! Selamat datang, ' . $found['name']);
+            return redirect()->route('umkm.index')->with('success', 'Login berhasil! Selamat datang, ' . $found['name']);
         } else {
             return redirect()->back()->with('error', 'Email atau password salah!')->withInput();
         }
