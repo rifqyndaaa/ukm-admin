@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="asset/img/favicon.ico" rel="icon">
+    <link href="{{asset('asset/img/favicon.ico')}}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,14 +23,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="asset/lib/animateanimate.min.css" rel="stylesheet">
-    <link href="asset/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="{{asset('asset/lib/animateanimate.min.css')}}" rel="stylesheet">
+    <link href="{{asset('asset/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="asset/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('asset/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="asset/css/style.css" rel="stylesheet">
+    <link href="{{asset('asset/css/style.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -47,7 +47,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-2 py-lg-0">
                 <a href="index.html" class="navbar-brand">
-                    <img class="img-fluid" src="asset/img/logo.png" alt="Logo">
+                    <img class="img-fluid" src="{{asset('asset/img/logo.png')}}" alt="Logo">
                 </a>
                 <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
@@ -64,7 +64,6 @@
                             <div class="dropdown-menu bg-light rounded-0 m-0">
                                 <a href="feature.html" class="dropdown-item">Features</a>
                                 <a href="datamasyarakat" class="dropdown-item">Data Masyarakat</a>
-                                <a href="datauser" class="dropdown-item">Data Users</a>
                                 <a href="blog.html" class="dropdown-item">Blog Article</a>
                                 <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                                 <a href="404.html" class="dropdown-item">404 Page</a>
@@ -82,98 +81,90 @@
     <!-- Navbar End -->
 
     <div class="container mt-4">
-        <h2>Data UMKM</h2>
-
-        @if (session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
-        @endif
+        <h2>Data warga</h2>
 
     <!-- Enhanced UMKM Data Section -->
 <div class="container mt-4">
     <div class="card shadow-lg border-0 rounded-3">
         <div class="card-header bg-gradient-primary text-white text-center py-3">
-            <h2 class="mb-0"><i class="fas fa-store me-2"></i>Data UMKM</h2>
+            <h2 class="mb-0"><i class="fas fa-store me-2"></i>Data warga</h2>
         </div>
         <div class="card-body">
 
 
 
-            <a href="{{ route('create') }}" class="btn btn-primary mb-4 rounded-pill px-4 py-2 shadow-sm">
-                <i class="fas fa-plus-circle me-2"></i>Tambah UMKM
-            </a>
+            <h2>Tambah Data Warga</h2>
 
-            <div class="table-responsive">
-                <table id="umkmTable" class="table table-hover table-striped align-middle">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>NO</th>
-                            <th>Nama Usaha</th>
-                            <th>Pemilik</th>
-                            <th>Alamat</th>
-                            <th>RT</th>
-                            <th>RW</th>
-                            <th>Kategori</th>
-                            <th>Kontak</th>
-                            <th>Deskripsi</th>
-                            <th>Foto Usaha</th>
-                            <th>Dokumen Izin</th>
-                            <th>Banner Promosi</th>
-                            <th>Tanggal Terbuat</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($dataUmkm as $item)
-                            <tr>
-                                <td>{{ $item->umkm_id }}</td>
-                                <td><strong class="text-primary">{{ $item->nama_usaha }}</strong></td>
-                                <td>{{ $item->pemilik_warga_id }}</td>
-                                <td>{{ $item->alamat }}</td>
-                                <td>{{ $item->rt }}</td>
-                                <td>{{ $item->rw }}</td>
-                                <td><span class="badge bg-info">{{ $item->kategori }}</span></td>
-                                <td>{{ $item->kontak }}</td>
-                                <td>{{ Str::limit($item->deskripsi, 50) }}</td>
-                                <td>
-                                    @if ($item->foto_usaha)
-                                        <img src="{{ asset('storage/' . $item->foto_usaha) }}" alt="Foto Usaha" width="80" class="img-thumbnail rounded shadow-sm" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="{{ asset('storage/' . $item->foto_usaha) }}" style="cursor: pointer;">
-                                    @else
-                                        <span class="text-muted"><i class="fas fa-image"></i> Tidak ada</span>
-                                    @endif
-                                </td>
-                                <td>
-                                    @if ($item->dokumen_izin)
-                                        <a href="{{ asset('storage/' . $item->dokumen_izin) }}" target="_blank" class="btn btn-sm btn-outline-info rounded-pill">
-                                            <i class="fas fa-file-alt me-1"></i>Lihat
-                                        </a>
-                                    @else
-                                        <span class="text-muted"><i class="fas fa-file"></i> Tidak ada</span>
-                                    @endif
-                                </td>
-                                <td>
-                                    @if ($item->banner_promosi)
-                                        <img src="{{ asset('storage/' . $item->banner_promosi) }}" alt="Banner" width="80" class="img-thumbnail rounded shadow-sm" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="{{ asset('storage/' . $item->banner_promosi) }}" style="cursor: pointer;">
-                                    @else
-                                        <span class="text-muted"><i class="fas fa-image"></i> Tidak ada</span>
-                                    @endif
-                                </td>
-                                <td>{{ $item->created_at->format('d-m-Y') }}</td>
-                                <td>
-                                    <div class="btn-group" role="group">
-                                        <a href="{{ route('umkm.edit', $item) }}" class="btn btn-sm btn-warning rounded-pill me-1" data-bs-toggle="tooltip" title="Edit">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <form action="{{ route('umkm.destroy', $item) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?')" style="display:inline;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="btn btn-sm btn-danger rounded-pill" data-bs-toggle="tooltip" title="Hapus">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </form>
+    {{-- Tampilkan pesan sukses/error --}}
+    @if (session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <strong>Terjadi kesalahan!</strong>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    {{-- Form tambah data --}}
+    <form action="{{ route('datamasyarakat.store') }}" method="POST">
+        @csrf
+
+        <div class="mb-3">
+            <label for="no_ktp" class="form-label">No KTP</label>
+            <input type="text" name="no_ktp" id="no_ktp" class="form-control"
+                   value="{{ old('no_ktp') }}" required maxlength="20">
+        </div>
+
+        <div class="mb-3">
+            <label for="nama" class="form-label">Nama Lengkap</label>
+            <input type="text" name="nama" id="nama" class="form-control"
+                   value="{{ old('nama') }}" required maxlength="100">
+        </div>
+
+        <div class="mb-3">
+            <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+            <select name="jenis_kelamin" id="jenis_kelamin" class="form-control" required>
+                <option value="">-- Pilih Jenis Kelamin --</option>
+                <option value="Laki-laki" {{ old('jenis_kelamin') == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
+                <option value="Perempuan" {{ old('jenis_kelamin') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="agama" class="form-label">Agama</label>
+            <input type="text" name="agama" id="agama" class="form-control"
+                   value="{{ old('agama') }}" required maxlength="50">
+        </div>
+
+        <div class="mb-3">
+            <label for="pekerjaan" class="form-label">Pekerjaan</label>
+            <input type="text" name="pekerjaan" id="pekerjaan" class="form-control"
+                   value="{{ old('pekerjaan') }}" maxlength="100">
+        </div>
+
+        <div class="mb-3">
+            <label for="telp" class="form-label">No Telepon</label>
+            <input type="text" name="telp" id="telp" class="form-control"
+                   value="{{ old('telp') }}" maxlength="20">
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Alamat Email</label>
+            <input type="email" name="email" id="email" class="form-control"
+                   value="{{ old('email') }}" maxlength="100">
+        </div>
+
+        <button type="submit" class="btn btn-success">Simpan</button>
+        <a href="{{ route('datamasyarakat.index') }}" class="btn btn-secondary">Kembali</a>
+    </form>
                                     </div>
                                 </td>
                             </tr>
-                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -777,13 +768,13 @@
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="asset/lib/easing/easing.min.js"></script>
-    <script src="asset/lib/waypoints/waypoints.min.js"></script>
-    <script src="asset/ib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="{{asset('asset/lib/wow/wow.min.js')}}"></script>
+    <script src="{{asset('asset/lib/easing/easing.min.js')}}"></script>
+    <script src="{{asset('asset/lib/waypoints/waypoints.min.js')}}"></script>
+    <script src="{{asset('asset/lib/owlcarousel/owl.carousel.min.js')}}"></script>
 
     <!-- Template Javascript -->
-    <script src="asset/js/main.js"></script>
+    <script src="{{asset('asset/js/main.js')}}"></script>
 </body>
 
 </html>

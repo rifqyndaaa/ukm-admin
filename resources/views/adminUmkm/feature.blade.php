@@ -21,8 +21,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="asset/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="asset/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -44,21 +44,21 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-2 py-lg-0">
                 <a href="index.html" class="navbar-brand">
-                    <img class="img-fluid" src="asset/img/logo.png" alt="Logo">
+                    <img class="img-fluid" src="img/logo.png" alt="Logo">
                 </a>
                 <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="product.html" class="nav-item nav-link">Products</a>
-                        <a href="store.html" class="nav-item nav-link">Store</a>
+                        <a href="{{ route('umkm.index') }}" class="nav-item nav-link">Home</a>
+                        <a href="{{ route('about') }}" class="nav-item nav-link">About</a>
+                        <a href="{{ route('product') }}" class="nav-item nav-link">Products</a>
+                        <a href="{{ route('store') }}" class="nav-item nav-link">Store</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu bg-light rounded-0 m-0">
-                                <a href="feature.html" class="dropdown-item active">Features</a>
+                                <a href="{{ route('features') }}" class="dropdown-item active">Features</a>
                                 <a href="blog.html" class="dropdown-item">Blog Article</a>
                                 <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                                 <a href="404.html" class="dropdown-item">404 Page</a>
@@ -243,13 +243,13 @@
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assetlib/wow/wow.min.js"></script>
-    <script src="asset/lib/easing/easing.min.js"></script>
-    <script src="asset/lib/waypoints/waypoints.min.js"></script>
-    <script src="asset/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="asset/js/main.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

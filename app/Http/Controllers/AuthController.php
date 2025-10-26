@@ -16,6 +16,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         // Validasi input
+
         $request->validate([
             'email'    => 'required|email',
             'password' => [
@@ -107,4 +108,26 @@ class AuthController extends Controller
     {
         // Nanti kamu bisa isi di sini sesuai kebutuhanmu
     }
+    public function register(Request $request)
+{
+    $request->validate([
+        'name' => 'required|string|min:3',
+        'email' => 'required|email',
+        'password' => [
+            'required',
+            'min:3',
+            'regex:/[A-Z]/', // harus mengandung huruf kapital
+        ],
+    ]);
+
+    // Contoh simulasi penyimpanan user baru (belum database)
+    return redirect()->route('login')
+        ->with('success', 'Pendaftaran berhasil! Silakan login dengan akun Anda.');
 }
+    public function logout(Request $request)
+    {
+        // Simulasi proses logout
+        return redirect()->route('login.form')->with('success', 'Anda telah logout.');
+    }
+}
+

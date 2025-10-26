@@ -11,6 +11,7 @@ class UmkmController extends Controller
     {
         $dataUmkm = Umkm::all();
         return view('adminUmkm.index', compact('dataUmkm'));
+
     }
 
     public function create()

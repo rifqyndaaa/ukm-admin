@@ -59,12 +59,12 @@
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu bg-light rounded-0 m-0">
                                 <a href="feature.html" class="dropdown-item">Features</a>
-                                <a href="blog.html" class="dropdown-item">Blog Article</a>
+                               <a href="blog.html" class="dropdown-item">Blog Article</a>
                                 <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                                 <a href="404.html" class="dropdown-item">404 Page</a>
                             </div>
                         </div>
-                         <a href="" class="nav-item nav-link active">Contact</a>
+                         <a href="{{ route('create')}}" class="nav-item nav-link active">Create</a>
                     </div>
                     <div class="border-start ps-4 d-none d-lg-block">
                         <button type="button" class="btn btn-sm p-0"><i class="fa fa-search"></i></button>
