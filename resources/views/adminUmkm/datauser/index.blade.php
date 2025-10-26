@@ -81,17 +81,14 @@
     <!-- Navbar End -->
 
     <div class="container mt-4">
-        <h2>Data UMKM</h2>
+        <h2>Data user</h2>
 
-        @if (session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
-        @endif
 
     <!-- Enhanced UMKM Data Section -->
 <div class="container mt-4">
     <div class="card shadow-lg border-0 rounded-3">
         <div class="card-header bg-gradient-primary text-white text-center py-3">
-            <h2 class="mb-0"><i class="fas fa-store me-2"></i>Data UMKM</h2>
+            <h2 class="mb-0"><i class="fas fa-store me-2"></i>Data user</h2>
         </div>
         <div class="card-body">
 
@@ -188,7 +185,7 @@
 <!-- Custom CSS for additional styling -->
 <style>
     .bg-gradient-primary {
-        background: linear-gradient(45deg, #007bff, #6610f2);
+        background: linear-gradient(45deg, #3dff77, #3aff86);
     }
     .table-hover tbody tr:hover {
         background-color: rgba(0, 123, 255, 0.1);

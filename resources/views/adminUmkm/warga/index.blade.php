@@ -82,9 +82,6 @@
     <div class="container mt-4">
         <h2>Data warga </h2>
 
-        @if (session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
-        @endif
 
     <!-- Enhanced UMKM Data Section -->
 <div class="container mt-4">
@@ -196,7 +193,7 @@
 <!-- Custom CSS for additional styling -->
 <style>
     .bg-gradient-primary {
-        background: linear-gradient(45deg, #007bff, #6610f2);
+        background: linear-gradient(45deg, #71ff71, #59fc61);
     }
     .table-hover tbody tr:hover {
         background-color: rgba(0, 123, 255, 0.1);

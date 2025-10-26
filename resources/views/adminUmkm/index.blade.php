@@ -232,7 +232,7 @@
 <!-- Custom CSS for additional styling -->
 <style>
     .bg-gradient-primary {
-        background: linear-gradient(45deg, #007bff, #6610f2);
+        background: linear-gradient(45deg, #61ff76, #25fd98);
     }
     .table-hover tbody tr:hover {
         background-color: rgba(0, 123, 255, 0.1);
