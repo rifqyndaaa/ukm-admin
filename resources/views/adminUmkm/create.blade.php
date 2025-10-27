@@ -44,27 +44,25 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-2 py-lg-0">
                 <a href="index.html" class="navbar-brand">
-                    <img class="img-fluid" src="asset/img/logo.png" alt="Logo">
+             <!-- link foto-->
                 </a>
                 <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                          <a href="{{ route('umkm.index')}}" class="nav-item nav-link">Home</a>
+                          <a href="{{ route('umkm.index')}}" class="nav-item nav-link">data umkm</a>
                          <a href="{{ route('about')}}" class="nav-item nav-link">About</a>
                           <a href="{{ route('product')}}" class="nav-item nav-link">Products</a>
                          <a href="{{ route('store')}}" class="nav-item nav-link">Store</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">menu</a>
                             <div class="dropdown-menu bg-light rounded-0 m-0">
-                                <a href="feature.html" class="dropdown-item">Features</a>
-                                <a href="blog.html" class="dropdown-item">Blog Article</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                <a href="404.html" class="dropdown-item">404 Page</a>
+                              <a href="datamasyarakat" class="dropdown-item">Data Masyarakat</a>
+                                <a href="datauser" class="dropdown-item">Data Users</a>
                             </div>
                         </div>
-                         <a href="{{ route('create')}}" class="nav-item nav-link active">Crate  </a>
+                         <a href="{{ route('create')}}" class="nav-item nav-link active">tambah umkm  </a>
                     </div>
                     <div class="border-start ps-4 d-none d-lg-block">
                         <button type="button" class="btn btn-sm p-0"><i class="fa fa-search"></i></button>
@@ -104,28 +102,28 @@
                     <div class="btn-square mx-auto mb-3">
                         <i class="fa fa-envelope fa-2x text-white"></i>
                     </div>
-                    <p class="mb-2">info@example.com</p>
-                    <p class="mb-0">support@example.com</p>
+                    <p class="mb-2">rifqiyanda@gmail.com</p>
+                    <p class="mb-0">sukra@gmail.com</p>
                 </div>
                 <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="0.4s">
                     <div class="btn-square mx-auto mb-3">
                         <i class="fa fa-phone fa-2x text-white"></i>
                     </div>
-                    <p class="mb-2">+012 345 67890</p>
-                    <p class="mb-0">+012 345 67890</p>
+                    <p class="mb-2">+08292424242</p>
+                    <p class="mb-0">+084367890</p>
                 </div>
                 <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="0.5s">
                     <div class="btn-square mx-auto mb-3">
                         <i class="fa fa-map-marker-alt fa-2x text-white"></i>
                     </div>
-                    <p class="mb-2">123 Street</p>
-                    <p class="mb-0">New York, USA</p>
+                    <p class="mb-2">123 jalaan</p>
+                    <p class="mb-0">umban sari atas,USA</p>
                 </div>
             </div>
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="mb-4">Need a functional contact form?</h3>
-                    <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+                    <h3 class="mb-4">Deskripsi</h3>
+                    <p class="mb-4">Formulir ini dirancang agar mudah digunakan oleh masyarakat sehingga proses pendataan menjadi lebih cepat dan efisien. Data yang terkumpul dapat dimanfaatkan untuk pembinaan, promosi digital, serta program bantuan bagi pelaku UMKM. Selain itu, sistem ini juga mendukung digitalisasi pendataan usaha dan membantu pemerintah dalam memetakan serta mengembangkan potensi ekonomi masyarakat secara lebih terarah.
                    <form method="POST" action="{{ route('umkm.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="row g-3">
@@ -211,67 +209,9 @@
 
 
 
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-primary mb-4">Our Office</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt text-primary me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>info@example.com</p>
-                    <div class="d-flex pt-3">
-                        <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-primary mb-4">Quick Links</h4>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Support</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-primary mb-4">Business Hours</h4>
-                    <p class="mb-1">Monday - Friday</p>
-                    <h6 class="text-light">09:00 am - 07:00 pm</h6>
-                    <p class="mb-1">Saturday</p>
-                    <h6 class="text-light">09:00 am - 12:00 pm</h6>
-                    <p class="mb-1">Sunday</p>
-                    <h6 class="text-light">Closed</h6>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-primary mb-4">Newsletter</h4>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                    <div class="position-relative w-100">
-                        <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
 
 
-    <!-- Copyright Start -->
-    <div class="container-fluid copyright py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="fw-medium" href="#">Your Site Name</a>, All Right Reserved.
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                    Designed By <a class="fw-medium" href="https://htmlcodex.com">HTML Codex</a>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!-- Copyright End -->
 
 

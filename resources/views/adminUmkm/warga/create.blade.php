@@ -64,9 +64,8 @@
                             <div class="dropdown-menu bg-light rounded-0 m-0">
                                 <a href="feature.html" class="dropdown-item">Features</a>
                                 <a href="datamasyarakat" class="dropdown-item">Data Masyarakat</a>
-                                <a href="blog.html" class="dropdown-item">Blog Article</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                <a href="404.html" class="dropdown-item">404 Page</a>
+                                <a href="b" class="dropdown-item">data user</a>
+
                             </div>
                         </div>
                         <a href="{{ route('create') }}" class="nav-item nav-link">Create</a>

@@ -40,16 +40,16 @@
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <div class="section-title">
-                        <p class="fs-5 fw-medium fst-italic text-primary">About Us</p>
-                        <h1 class="display-6">The success history of TEA House in 25 years</h1>
+                        <p class="fs-5 fw-medium fst-italic text-primary">tentang usaha</p>
+                        <h1 class="display-6">ini bisnnis yang baru di kembangkan dan juga ini merupakan usaha yang baru diriilis meelalui media sossial media online</h1>
                     </div>
                     <div class="row g-3 mb-4">
                         <div class="col-sm-4">
                             <img class="img-fluid bg-white w-100" src="asset/img/about-5.jpg" alt="">
                         </div>
                         <div class="col-sm-8">
-                            <h5>Our tea is one of the most popular drinks in the world</h5>
-                            <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit</p>
+                            <h5>kami menyedikan produk teh berkualitas tinggi</h5>
+                            <p class="mb-0">....................................</p>
                         </div>
                     </div>
                     <div class="border-top mb-4"></div>

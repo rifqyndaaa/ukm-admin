@@ -84,11 +84,8 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
 
 
-// Protected Routes (contoh)
-Route::middleware(['auth'])->group(function () {
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-    // Tambahan routes protected lainnya
-});
+
+
 //warga routes
 Route::get('/datamasyarakat', [DataMasyarakatController::class, 'index'])->name('datamasyarakat.index');
 Route::get('/datamasyarakat/create', [DataMasyarakatController::class, 'create'])->name('datamasyarakat.create');

@@ -47,7 +47,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-2 py-lg-0">
                 <a href="index.html" class="navbar-brand">
-                    <img class="img-fluid" src="asset/img/logo.png" alt="Logo">
+
                 </a>
                 <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
@@ -55,20 +55,19 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="{{ route('umkm.index') }}" class="nav-item nav-link active">data umkm</a>
+                        <a href="{{ route('umkm.index') }}" class="nav-item nav-link active">data warga</a>
                         <a href="{{ route('about') }}" class="nav-item nav-link">About</a>
                         <a href="{{ route('product') }}"class="nav-item nav-link">Products</a>
                         <a href="{{ route('store') }}"class="nav-item nav-link">Store</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">menu lainya</a>
                             <div class="dropdown-menu bg-light rounded-0 m-0">
-                                <a href="feature.html" class="dropdown-item">Features</a>
-                                <a href="blog.html" class="dropdown-item">Blog Article</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                <a href="404.html" class="dropdown-item">404 Page</a>
+                                <a href="datamasyarakat" class="dropdown-item">data warga</a>
+                                <a href="datauser" class="dropdown-item">data user</a>
+
                             </div>
                         </div>
-                        <a href="{{ route('create') }}" class="nav-item nav-link">Create</a>
+                        <a href="{{ route('create') }}" class="nav-item nav-link">tambah umkm</a>
                     </div>
                     <div class="border-start ps-4 d-none d-lg-block">
                         <button type="button" class="btn btn-sm p-0"><i class="fa fa-search"></i></button>
@@ -136,7 +135,7 @@
             </tr>
             @endforeach
         </tbody>
-    </table>x`
+    </table>
             </div>
         </div>
     </div>
