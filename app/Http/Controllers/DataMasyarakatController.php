@@ -13,7 +13,7 @@ class DataMasyarakatController extends Controller
     public function index()
     {
         $warga = Warga::all();
-        return view('adminUmkm.warga.index', compact('warga'));
+        return view('.pages.warga.index', compact('warga'));
     }
 
     /**
@@ -21,7 +21,7 @@ class DataMasyarakatController extends Controller
      */
     public function create()
     {
-        return view('adminUmkm.warga.create');
+        return view('pages.warga.create');
     }
 
     /**
@@ -60,7 +60,7 @@ class DataMasyarakatController extends Controller
     public function edit($id)
     {
         $warga = Warga::findOrFail($id);
-        return view('adminUmkm.warga.edit', compact('warga'));
+        return view('pages.warga.edit', compact('warga'));
     }
 
     /**

@@ -12,13 +12,13 @@ class DataUserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('adminUmkm.datauser.index', compact('users'));
+        return view('pages.datauser.index', compact('users'));
     }
 
     // Form tambah user
     public function create()
     {
-        return view('adminUmkm.datauser.create');
+        return view('pages.datauser.create');
     }
 
     // Simpan user baru
@@ -43,7 +43,7 @@ class DataUserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        return view('adminUmkm.datauser.create', compact('user'));
+        return view('pages.datauser.create', compact('user'));
     }
 
     // Update user

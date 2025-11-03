@@ -13,7 +13,6 @@ Route::get('/about', function () {
 // routes/web.php
 use App\Http\Controllers\AuthController;
 
-Route::get('/umkm', [UmkmController::class, 'index']);
 
 
 Route::get('/login', [AuthController::class, 'index'])->name('login.form');
@@ -28,26 +27,26 @@ Route::get('/dataUMKM', function () {
 })->name('index');
 
 Route::get('/about', function () {
-    return view('adminUmkm.about');
+    return view('pages.webview.about');
 })->name('about');
 
 Route::get('/product', function () {
-    return view('adminUmkm.product');
+    return view('pages.webview.product');
 })->name('product');
 
 Route::get('/store', function () {
-    return view('adminUmkm.store');
+    return view('pages.webview.store');
 })->name('store');
 
 Route::get('/editUMKM', function () {
-    return view('adminUmkm.edit');
+    return view('pages.webview.edit');
 })->name('edit');
 
 
 
 
 Route::get('/create', function () {
-    return view('adminUmkm.create');
+    return view('pages.webview.create');
 })->name('create');
 
 
@@ -62,8 +61,6 @@ Route::put('/updtUMKM', [UmkmController::class, 'update'])->name('umkm.update');
 Route::delete('/dataUMKM', [UmkmController::class, 'destroy'])->name('umkm.destroy');
 
 
-
-Route::resource('users', UserController::class);
 
 
 
@@ -86,7 +83,6 @@ Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard'
 
 // Protected Routes (contoh)
 Route::middleware(['auth'])->group(function () {
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     // Tambahan routes protected lainnya
 });
 //warga routes

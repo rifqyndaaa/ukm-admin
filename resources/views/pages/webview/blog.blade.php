@@ -177,7 +177,65 @@
     </div>
     <!-- Copyright End -->
 
+      <!-- TAMBAHAN: Floating WhatsApp Button -->
+    <a href="https://wa.me/08978350675?text=Halo%20saya%20ingin%20bertanya%20tentang%20UMKM" id="whatsapp-float"
+        target="_blank" aria-label="Hubungi via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+ <!-- TAMBAHAN: CSS untuk Floating WhatsApp Button -->
+ <style>
+     /* Styling Floating WhatsApp Button */
+     #whatsapp-float {
+         position: fixed;
+         /* Membuat tombol melayang */
+         bottom: 20px;
+         /* Jarak dari bawah layar */
+         right: 20px;
+         /* Jarak dari kanan layar */
+         width: 60px;
+         height: 60px;
+         background-color: #25d366;
+         /* Warna hijau WhatsApp */
+         border-radius: 50%;
+         /* Membuat bulat */
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+         /* Bayangan untuk efek melayang */
+         transition: transform 0.3s ease;
+         /* Animasi hover */
+         z-index: 1000;
+         /* Pastikan di atas elemen lain */
+         text-decoration: none;
+         /* Hapus garis bawah link */
+     }
 
+     #whatsapp-float:hover {
+         transform: scale(1.1);
+         /* Membesar saat hover */
+     }
+
+     #whatsapp-float i {
+         color: white;
+         /* Warna ikon putih */
+         font-size: 24px;
+         /* Ukuran ikon */
+     }
+
+     /* Responsivitas untuk mobile */
+     @media (max-width: 768px) {
+         #whatsapp-float {
+             bottom: 15px;
+             right: 15px;
+             width: 50px;
+             height: 50px;
+         }
+
+         #whatsapp-float i {
+             font-size: 20px;
+         }
+     }
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 

@@ -10,7 +10,7 @@ class UmkmController extends Controller
     public function index()
     {
         $dataUmkm = Umkm::all();
-        return view('adminUmkm.index', compact('dataUmkm'));
+        return view('pages.webview.index  ', compact('dataUmkm'));
 
     }
 
