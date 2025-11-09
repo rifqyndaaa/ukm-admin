@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Tea House - Tea Shop Website Template</title>
+    <title>Tea House - Data Warga</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -14,16 +14,14 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="{{asset('asset/lib/animateanimate.min.css')}}" rel="stylesheet">
+    <link href="{{asset('asset/lib/animate/animate.min.css')}}" rel="stylesheet">
     <link href="{{asset('asset/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
@@ -31,44 +29,286 @@
 
     <!-- Template Stylesheet -->
     <link href="{{asset('asset/css/style.css')}}" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #11bd28;
+            --primary-dark: #224abe;
+            --secondary-color: #858796;
+            --success-color: #1cc88a;
+            --warning-color: #f6c23e;
+            --danger-color: #e74a3b;
+            --light-bg: #f8f9fc;
+        }
+
+        .form-container {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fc 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .form-header:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-radius: 2px;
+        }
+
+        .form-title {
+            color: #2e3a59;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-subtitle {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e3e6f0;
+            margin-bottom: 2rem;
+        }
+
+        .form-section-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #e3e6f0;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-section-title i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #5a5c69;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-label i {
+            margin-right: 8px;
+            color: var(--primary-color);
+            width: 20px;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            padding: 12px 15px;
+            border: 2px solid #e3e6f0;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.3rem rgba(78, 115, 223, 0.15);
+        }
+
+        .input-group-text {
+            background-color: var(--light-bg);
+            border: 2px solid #e3e6f0;
+            border-right: none;
+            border-radius: 10px 0 0 10px;
+        }
+
+        .form-control.with-icon {
+            border-left: none;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border: none;
+            padding: 14px 35px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(78, 115, 223, 0.3);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(78, 115, 223, 0.4);
+        }
+
+        .btn-back {
+            background-color: white;
+            border: 2px solid #e3e6f0;
+            color: #5a5c69;
+            padding: 14px 35px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-back:hover {
+            background-color: #f8f9fc;
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .alert-custom {
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 1.25rem 1.5rem;
+        }
+
+        .alert-success {
+            background: linear-gradient(135deg, #1cc88a, #17a673);
+            color: white;
+        }
+
+        .alert-danger {
+            background: linear-gradient(135deg, #e74a3b, #be2617);
+            color: white;
+        }
+
+        .error-message {
+            font-size: 0.875rem;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .error-message i {
+            margin-right: 5px;
+        }
+
+        .progress-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .progress-indicator:before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #e3e6f0;
+            z-index: 1;
+        }
+
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid #e3e6f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--secondary-color);
+            transition: all 0.3s;
+        }
+
+        .progress-step.active .step-icon {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        .step-label {
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .progress-step.active .step-label {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-card {
+                padding: 1.5rem;
+            }
+
+            .btn-submit, .btn-back {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
     </div>
     <!-- Spinner End -->
-
 
     <!-- Navbar Start -->
     <div class="container-fluid bg-white sticky-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-2 py-lg-0">
                 <a href="index.html" class="navbar-brand">
-                    <img class="img-fluid" src="{{asset('asset/img/logo.png')}}" alt="Logo">
+                    <!-- Logo here -->
                 </a>
-                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
-                    data-bs-target="#navbarCollapse">
+                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="{{ route('umkm.index') }}" class="nav-item nav-link active">data umkm</a>
+                        <a href="{{ route('umkm.index') }}" class="nav-item nav-link">Data UMKM</a>
                         <a href="{{ route('about') }}" class="nav-item nav-link">About</a>
-                        <a href="{{ route('product') }}"class="nav-item nav-link">Products</a>
-                        <a href="{{ route('store') }}"class="nav-item nav-link">Store</a>
+                        <a href="{{ route('product') }}" class="nav-item nav-link">Products</a>
+                        <a href="{{ route('store') }}" class="nav-item nav-link">Store</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu bg-light rounded-0 m-0">
-                                <a href="feature.html" class="dropdown-item">Features</a>
                                 <a href="datamasyarakat" class="dropdown-item">Data Masyarakat</a>
-                                <a href="b" class="dropdown-item">data user</a>
-
+                                <a href="b" class="dropdown-item">Data User</a>
                             </div>
                         </div>
-                        <a href="{{ route('create') }}" class="nav-item nav-link">Create</a>
+                        <a href="{{ route('create') }}" class="nav-item nav-link active">Create</a>
                     </div>
                     <div class="border-start ps-4 d-none d-lg-block">
                         <button type="button" class="btn btn-sm p-0"><i class="fa fa-search"></i></button>
@@ -79,690 +319,209 @@
     </div>
     <!-- Navbar End -->
 
-    <div class="container mt-4">
-        <h2>Data UMKM</h2>
+    <!-- Form Section Start -->
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="form-container">
+                    <!-- Progress Indicator -->
+                    <div class="progress-indicator">
+                        <div class="progress-step active">
+                            <div class="step-icon">1</div>
+                            <span class="step-label">Data Pribadi</span>
+                        </div>
+                        <div class="progress-step">
+                            <div class="step-icon">2</div>
+                            <span class="step-label">Data Kontak</span>
+                        </div>
+                        <div class="progress-step">
+                            <div class="step-icon">3</div>
+                            <span class="step-label">Konfirmasi</span>
+                        </div>
+                    </div>
 
-    <!-- Enhanced UMKM Data Section -->
-<div class="container mt-4">
-    <div class="card shadow-lg border-0 rounded-3">
-        <div class="card-header bg-gradient-primary text-white text-center py-3">
-            <h2 class="mb-0"><i class="fas fa-store me-2"></i>Data UMKM</h2>
-        </div>
-        <div class="card-body">
+                    <!-- Form Header -->
+                    <div class="form-header">
+                        <h1 class="form-title">Tambah Data Warga</h1>
+                        <p class="form-subtitle">Lengkapi formulir di bawah untuk menambahkan data warga baru</p>
+                    </div>
 
+                    <!-- Alert Messages -->
+                    @if (session('success'))
+                        <div class="alert alert-success alert-custom mb-4">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-1">Berhasil!</h5>
+                                    <p class="mb-0">{{ session('success') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
 
+                    @if ($errors->any())
+                        <div class="alert alert-danger alert-custom mb-4">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-exclamation-triangle fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-1">Terjadi Kesalahan!</h5>
+                                    <ul class="mb-0 ps-3">
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
 
-            <h2>Tambah Data Warga</h2>
+                    <!-- Form -->
+                    <form action="{{ route('datamasyarakat.store') }}" method="POST">
+                        @csrf
 
-    {{-- Tampilkan pesan sukses/error --}}
-    @if (session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <strong>Terjadi kesalahan!</strong>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+                        <!-- Data Pribadi Card -->
+                        <div class="form-card">
+                            <h4 class="form-section-title">
+                                <i class="fas fa-user-circle"></i>Data Pribadi
+                            </h4>
 
-    {{-- Form tambah data --}}
-    <form action="{{ route('datamasyarakat.store') }}" method="POST">
-        @csrf
-
-        <div class="mb-3">
-            <label for="no_ktp" class="form-label">No KTP</label>
-            <input type="text" name="no_ktp" id="no_ktp" class="form-control"
-                   value="{{ old('no_ktp') }}" required maxlength="20">
-        </div>
-
-        <div class="mb-3">
-            <label for="nama" class="form-label">Nama Lengkap</label>
-            <input type="text" name="nama" id="nama" class="form-control"
-                   value="{{ old('nama') }}" required maxlength="100">
-        </div>
-
-        <div class="mb-3">
-            <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
-            <select name="jenis_kelamin" id="jenis_kelamin" class="form-control" required>
-                <option value="">-- Pilih Jenis Kelamin --</option>
-                <option value="Laki-laki" {{ old('jenis_kelamin') == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
-                <option value="Perempuan" {{ old('jenis_kelamin') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
-            </select>
-        </div>
-
-        <div class="mb-3">
-            <label for="agama" class="form-label">Agama</label>
-            <input type="text" name="agama" id="agama" class="form-control"
-                   value="{{ old('agama') }}" required maxlength="50">
-        </div>
-
-        <div class="mb-3">
-            <label for="pekerjaan" class="form-label">Pekerjaan</label>
-            <input type="text" name="pekerjaan" id="pekerjaan" class="form-control"
-                   value="{{ old('pekerjaan') }}" maxlength="100">
-        </div>
-
-        <div class="mb-3">
-            <label for="telp" class="form-label">No Telepon</label>
-            <input type="text" name="telp" id="telp" class="form-control"
-                   value="{{ old('telp') }}" maxlength="20">
-        </div>
-
-        <div class="mb-3">
-            <label for="email" class="form-label">Alamat Email</label>
-            <input type="email" name="email" id="email" class="form-control"
-                   value="{{ old('email') }}" maxlength="100">
-        </div>
-
-        <button type="submit" class="btn btn-success">Simpan</button>
-        <a href="{{ route('datamasyarakat.index') }}" class="btn btn-secondary">Kembali</a>
-    </form>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="no_ktp" class="form-label">
+                                        <i class="fas fa-id-card"></i>No KTP
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-id-card text-muted"></i></span>
+                                        <input type="text" name="no_ktp" id="no_ktp" class="form-control with-icon"
+                                               value="{{ old('no_ktp') }}" required maxlength="20" placeholder="Masukkan nomor KTP">
                                     </div>
-                                </td>
-                            </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal for Image Preview -->
-<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content rounded-3 shadow">
-            <div class="modal-header bg-light">
-                <h5 class="modal-title" id="imageModalLabel"><i class="fas fa-image me-2"></i>Preview Gambar</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body text-center">
-                <img id="modalImage" src="" alt="Preview" class="img-fluid rounded">
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Add this to the head section of your HTML -->
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
-
-<!-- Add this script at the end of your body -->
-<script>
-    $(document).ready(function() {
-        $('#umkmTable').DataTable({
-            "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/id.json"
-            },
-            "pageLength": 10,
-            "ordering": true,
-            "searching": true,
-            "paging": true,
-            "responsive": true
-        });
-
-        // Initialize tooltips
-        $('[data-bs-toggle="tooltip"]').tooltip();
-
-        // Modal image preview
-        $('#imageModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget);
-            var src = button.data('src');
-            var modal = $(this);
-            modal.find('#modalImage').attr('src', src);
-        });
-    });
-</script>
-
-<!-- Custom CSS for additional styling -->
-<style>
-    .bg-gradient-primary {
-        background: linear-gradient(45deg, #007bff, #6610f2);
-    }
-    .table-hover tbody tr:hover {
-        background-color: rgba(0, 123, 255, 0.1);
-        transform: scale(1.01);
-        transition: all 0.3s ease;
-    }
-    .img-thumbnail:hover {
-        transform: scale(1.1);
-        transition: transform 0.3s ease;
-    }
-    .btn-group .btn {
-        margin-right: 2px;
-    }
-    .card {
-        border-radius: 15px;
-        overflow: hidden;
-    }
-    .card-header {
-        border-bottom: none;
-    }
-</style>
-
-            </tbody>
-        </table>
-    </div>5
-    <!-- Carousel Start -->
-    <div class="container-fluid px-0 mb-5">
-        <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="w-100" src="asset/img/carousel-1.jpg" alt="Image">
-                    <div class="carousel-caption">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-7 text-center">
-                                    <p class="fs-4 text-white animated zoomIn">Welcome to <strong
-                                            class="text-dark">TEA House</strong></p>
-                                    <h1 class="display-1 text-dark mb-4 animated zoomIn">Organic & Quality Tea
-                                        Production</h1>
-                                    <a href=""
-                                        class="btn btn-light rounded-pill py-3 px-5 animated zoomIn">Explore More</a>
+                                    @error('no_ktp')
+                                        <small class="text-danger error-message">
+                                            <i class="fas fa-exclamation-circle"></i>{{ $message }}
+                                        </small>
+                                    @enderror
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="w-100" src="asset/img/carousel-2.jpg" alt="Image">
-                    <div class="carousel-caption">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-7 text-center">
-                                    <p class="fs-4 text-white animated zoomIn">Welcome to <strong
-                                            class="text-dark">TEA House</strong></p>
-                                    <h1 class="display-1 text-dark mb-4 animated zoomIn">Organic & Quality Tea
-                                        Production</h1>
-                                    <a href=""
-                                        class="btn btn-light rounded-pill py-3 px-5 animated zoomIn">Explore More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </div>
-    <!-- Carousel End -->
 
-
-    <!-- About Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6">
-                    <div class="row g-3">
-                        <div class="col-6 text-end">
-                            <img class="img-fluid bg-white w-100 mb-3 wow fadeIn" data-wow-delay="0.1s"
-                                src="assetimg/about-1.jpg" alt="">
-                            <img class="img-fluid bg-white w-50 wow fadeIn" data-wow-delay="0.2s"
-                                src="asset/img/about-3.jpg" alt="">
-                        </div>
-                        <div class="col-6">
-                            <img class="img-fluid bg-white w-50 mb-3 wow fadeIn" data-wow-delay="0.3s"
-                                src="asset/img/about-4.jpg" alt="">
-                            <img class="img-fluid bg-white w-100 wow fadeIn" data-wow-delay="0.4s"
-                                src="asset/img/about-2.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="section-title">
-                        <p class="fs-5 fw-medium fst-italic text-primary">About Us</p>
-                        <h1 class="display-6">The success history of TEA House in 25 years</h1>
-                    </div>
-                    <div class="row g-3 mb-4">
-                        <div class="col-sm-4">
-                            <img class="img-fluid bg-white w-100" src="iasset/mg/about-5.jpg" alt="">
-                        </div>
-                        <div class="col-sm-8">
-                            <h5>Our tea is one of the most popular drinks in the world</h5>
-                            <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam
-                                amet diam et eos. Clita erat ipsum et lorem et sit</p>
-                        </div>
-                    </div>
-                    <div class="border-top mb-4"></div>
-                    <div class="row g-3">
-                        <div class="col-sm-8">
-                            <h5>Daily use of a cup of tea is good for your health</h5>
-                            <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam
-                                amet diam et eos. Clita erat ipsum et lorem et sit</p>
-                        </div>
-                        <div class="col-sm-4">
-                            <img class="img-fluid bg-white w-100" src="asset/img/about-6.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
-
-
-    <!-- Products Start -->
-    <div class="container-fluid product py-5 my-5">
-        <div class="container py-5">
-            <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s"
-                style="max-width: 500px;">
-                <p class="fs-5 fw-medium fst-italic text-primary">Our Products</p>
-                <h1 class="display-6">Tea has a complex positive effect on the body</h1>
-            </div>
-            <div class="owl-carousel product-carousel wow fadeInUp" data-wow-delay="0.5s">
-                <a href="" class="d-block product-item rounded">
-                    <img src="asset/img/product-1.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">Green Tea</h4>
-                        <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat
-                            ipsum</span>
-                    </div>
-                </a>
-                <a href="" class="d-block product-item rounded">
-                    <img src="asset/img/product-2.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">Black Tea</h4>
-                        <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat
-                            ipsum</span>
-                    </div>
-                </a>
-                <a href="" class="d-block product-item rounded">
-                    <img src="asset/img/product-3.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">Spiced Tea</h4>
-                        <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat
-                            ipsum</span>
-                    </div>
-                </a>
-                <a href="" class="d-block product-item rounded">
-                    <img src="asset/img/product-4.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">Organic Tea</h4>
-                        <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat
-                            ipsum</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-    <!-- Products End -->
-
-
-    <!-- Article Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
-                    <img class="img-fluid" src="asset/img/article.jpg" alt="">
-                </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="section-title">
-                        <p class="fs-5 fw-medium fst-italic text-primary">Featured Acticle</p>
-                        <h1 class="display-6">The history of tea leaf in the world</h1>
-                    </div>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam
-                        et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat
-                        amet</p>
-                    <p class="mb-4">Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem
-                        et sit, sed stet lorem sit clita duo justo magna. Tempor erat elitr rebum at clita.</p>
-                    <a href="" class="btn btn-primary rounded-pill py-3 px-5">Read More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Article End -->
-
-
-    <!-- Video Start -->
-    <div class="container-fluid video my-5">
-        <div class="container">
-            <div class="row g-0">
-                <div class="col-lg-6 py-5 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="py-5">
-                        <h1 class="display-6 mb-4">Tea is a drink of <span class="text-white">health</span> and <span
-                                class="text-white">beauty</span></h1>
-                        <h5 class="fw-normal lh-base fst-italic text-white mb-5">Tempor erat elitr rebum at clita. Diam
-                            dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit</h5>
-                        <div class="row g-4 mb-5">
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 btn-lg-square bg-white text-primary rounded-circle me-3">
-                                        <i class="fa fa-check"></i>
+                                <div class="col-md-6 mb-4">
+                                    <label for="nama" class="form-label">
+                                        <i class="fas fa-user"></i>Nama Lengkap
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-user text-muted"></i></span>
+                                        <input type="text" name="nama" id="nama" class="form-control with-icon"
+                                               value="{{ old('nama') }}" required maxlength="100" placeholder="Masukkan nama lengkap">
                                     </div>
-                                    <span class="text-dark">Great tea assortment</span>
+                                    @error('nama')
+                                        <small class="text-danger error-message">
+                                            <i class="fas fa-exclamation-circle"></i>{{ $message }}
+                                        </small>
+                                    @enderror
                                 </div>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 btn-lg-square bg-white text-primary rounded-circle me-3">
-                                        <i class="fa fa-check"></i>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="jenis_kelamin" class="form-label">
+                                        <i class="fas fa-venus-mars"></i>Jenis Kelamin
+                                    </label>
+                                    <select name="jenis_kelamin" id="jenis_kelamin" class="form-control" required>
+                                        <option value="">-- Pilih Jenis Kelamin --</option>
+                                        <option value="Laki-laki" {{ old('jenis_kelamin') == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
+                                        <option value="Perempuan" {{ old('jenis_kelamin') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                                    </select>
+                                    @error('jenis_kelamin')
+                                        <small class="text-danger error-message">
+                                            <i class="fas fa-exclamation-circle"></i>{{ $message }}
+                                        </small>
+                                    @enderror
+                                </div>
+
+                                <div class="col-md-6 mb-4">
+                                    <label for="agama" class="form-label">
+                                        <i class="fas fa-pray"></i>Agama
+                                    </label>
+                                    <input type="text" name="agama" id="agama" class="form-control"
+                                           value="{{ old('agama') }}" required maxlength="50" placeholder="Masukkan agama">
+                                    @error('agama')
+                                        <small class="text-danger error-message">
+                                            <i class="fas fa-exclamation-circle"></i>{{ $message }}
+                                        </small>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="pekerjaan" class="form-label">
+                                        <i class="fas fa-briefcase"></i>Pekerjaan
+                                    </label>
+                                    <input type="text" name="pekerjaan" id="pekerjaan" class="form-control"
+                                           value="{{ old('pekerjaan') }}" maxlength="100" placeholder="Masukkan pekerjaan">
+                                    @error('pekerjaan')
+                                        <small class="text-danger error-message">
+                                            <i class="fas fa-exclamation-circle"></i>{{ $message }}
+                                        </small>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Data Kontak Card -->
+                        <div class="form-card">
+                            <h4 class="form-section-title">
+                                <i class="fas fa-address-book"></i>Data Kontak
+                            </h4>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="telp" class="form-label">
+                                        <i class="fas fa-phone"></i>No Telepon
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-phone text-muted"></i></span>
+                                        <input type="text" name="telp" id="telp" class="form-control with-icon"
+                                               value="{{ old('telp') }}" maxlength="20" placeholder="Masukkan nomor telepon">
                                     </div>
-                                    <span class="text-dark">Spices & additives</span>
+                                    @error('telp')
+                                        <small class="text-danger error-message">
+                                            <i class="fas fa-exclamation-circle"></i>{{ $message }}
+                                        </small>
+                                    @enderror
                                 </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 btn-lg-square bg-white text-primary rounded-circle me-3">
-                                        <i class="fa fa-check"></i>
+
+                                <div class="col-md-6 mb-4">
+                                    <label for="email" class="form-label">
+                                        <i class="fas fa-envelope"></i>Alamat Email
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-envelope text-muted"></i></span>
+                                        <input type="email" name="email" id="email" class="form-control with-icon"
+                                               value="{{ old('email') }}" maxlength="100" placeholder="Masukkan alamat email">
                                     </div>
-                                    <span class="text-dark">Unique accessories</span>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 btn-lg-square bg-white text-primary rounded-circle me-3">
-                                        <i class="fa fa-check"></i>
-                                    </div>
-                                    <span class="text-dark">Good for health & beauty</span>
+                                    @error('email')
+                                        <small class="text-danger error-message">
+                                            <i class="fas fa-exclamation-circle"></i>{{ $message }}
+                                        </small>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
-                        <a class="btn btn-light rounded-pill py-3 px-5" href="">Explore More</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="h-100 d-flex align-items-center justify-content-center" style="min-height: 300px;">
-                        <button type="button" class="btn-play" data-bs-toggle="modal"
-                            data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
-                            <span></span>
-                        </button>
-                    </div>
+
+                        <!-- Action Buttons -->
+                        <div class="d-flex justify-content-between mt-4">
+                            <a href="{{ route('datamasyarakat.index') }}" class="btn btn-back">
+                                <i class="fas fa-arrow-left me-2"></i>Kembali ke Daftar
+                            </a>
+                            <button type="submit" class="btn btn-submit text-white">
+                                <i class="fas fa-save me-2"></i>Simpan Data Warga
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Video End -->
-
-
-    <!-- Video Modal Start -->
-    <div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content rounded-0">
-                <div class="modal-header">
-                    <h3 class="modal-title" id="exampleModalLabel">Youtube Video</h3>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- 16:9 aspect ratio -->
-                    <div class="ratio ratio-16x9">
-                        <iframe class="embed-responsive-item" src="" id="video" allowfullscreen
-                            allowscriptaccess="always" allow="autoplay"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Video Modal End -->
-
-
-    <!-- Store Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s"
-                style="max-width: 500px;">
-                <p class="fs-5 fw-medium fst-italic text-primary">Online Store</p>
-                <h1 class="display-6">Want to stay healthy? Choose tea taste</h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="store-item position-relative text-center">
-                        <img class="img-fluid" src="asset/img/store-product-1.jpg" alt="">
-                        <div class="p-4">
-                            <div class="text-center mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                            </div>
-                            <h4 class="mb-3">Nature close tea</h4>
-                            <p>Aliqu diam amet diam et eos. Clita erat ipsum lorem erat ipsum lorem sit sed</p>
-                            <h4 class="text-primary">$19.00</h4>
-                        </div>
-                        <div class="store-overlay">
-                            <a href="" class="btn btn-primary rounded-pill py-2 px-4 m-2">More Detail <i
-                                    class="fa fa-arrow-right ms-2"></i></a>
-                            <a href="" class="btn btn-dark rounded-pill py-2 px-4 m-2">Add to Cart <i
-                                    class="fa fa-cart-plus ms-2"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="store-item position-relative text-center">
-                        <img class="img-fluid" src="asset/img/store-product-2.jpg" alt="">
-                        <div class="p-4">
-                            <div class="text-center mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                            </div>
-                            <h4 class="mb-3">Green tea tulsi</h4>
-                            <p>Aliqu diam amet diam et eos. Clita erat ipsum lorem erat ipsum lorem sit sed</p>
-                            <h4 class="text-primary">$19.00</h4>
-                        </div>
-                        <div class="store-overlay">
-                            <a href="" class="btn btn-primary rounded-pill py-2 px-4 m-2">More Detail <i
-                                    class="fa fa-arrow-right ms-2"></i></a>
-                            <a href="" class="btn btn-dark rounded-pill py-2 px-4 m-2">Add to Cart <i
-                                    class="fa fa-cart-plus ms-2"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="store-item position-relative text-center">
-                        <img class="img-fluid" src="asset/img/store-product-3.jpg" alt="">
-                        <div class="p-4">
-                            <div class="text-center mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                            </div>
-                            <h4 class="mb-3">Instant tea premix</h4>
-                            <p>Aliqu diam amet diam et eos. Clita erat ipsum lorem erat ipsum lorem sit sed</p>
-                            <h4 class="text-primary">$19.00</h4>
-                        </div>
-                        <div class="store-overlay">
-                            <a href="" class="btn btn-primary rounded-pill py-2 px-4 m-2">More Detail <i
-                                    class="fa fa-arrow-right ms-2"></i></a>
-                            <a href="" class="btn btn-dark rounded-pill py-2 px-4 m-2">Add to Cart <i
-                                    class="fa fa-cart-plus ms-2"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <a href="" class="btn btn-primary rounded-pill py-3 px-5">View More Products</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Store End -->
-
-
-    <!-- Testimonial Start -->
-    <div class="container-fluid testimonial py-5 my-5">
-        <div class="container py-5">
-            <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s"
-                style="max-width: 500px;">
-                <p class="fs-5 fw-medium fst-italic text-white">Testimonial</p>
-                <h1 class="display-6">What our clients say about our tea</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.5s">
-                <div class="testimonial-item p-4 p-lg-5">
-                    <p class="mb-4">Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem
-                        et sit, sed stet lorem sit clita duo justo</p>
-                    <div class="d-flex align-items-center justify-content-center">
-                        <img class="img-fluid flex-shrink-0" src="asset/img/testimonial-1.jpg" alt="">
-                        <div class="text-start ms-3">
-                            <h5>Client Name</h5>
-                            <span class="text-primary">Profession</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item p-4 p-lg-5">
-                    <p class="mb-4">Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem
-                        et sit, sed stet lorem sit clita duo justo</p>
-                    <div class="d-flex align-items-center justify-content-center">
-                        <img class="img-fluid flex-shrink-0" src="asset/img/testimonial-2.jpg" alt="">
-                        <div class="text-start ms-3">
-                            <h5>Client Name</h5>
-                            <span class="text-primary">Profession</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item p-4 p-lg-5">
-                    <p class="mb-4">Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem
-                        et sit, sed stet lorem sit clita duo justo</p>
-                    <div class="d-flex align-items-center justify-content-center">
-                        <img class="img-fluid flex-shrink-0" src="asset/img/testimonial-3.jpg" alt="">
-                        <div class="text-start ms-3">
-                            <h5>Client Name</h5>
-                            <span class="text-primary">Profession</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Testimonial End -->
-
-
-    <!-- Contact Start -->
-    <div class="container-xxl contact py-5">
-        <div class="container">
-            <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s"
-                style="max-width: 500px;">
-                <p class="fs-5 fw-medium fst-italic text-primary">Contact Us</p>
-                <h1 class="display-6">Contact us right now</h1>
-            </div>
-            <div class="row justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                <div class="col-lg-8">
-                    <p class="text-center mb-5">Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat
-                        ipsum et lorem et sit, sed stet lorem sit clita duo justo Diam dolor diam ipsum sit. Aliqu diam
-                        amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo</p>
-                    <div class="row g-5">
-                        <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="0.3s">
-                            <div class="btn-square mx-auto mb-3">
-                                <i class="fa fa-envelope fa-2x text-white"></i>
-                            </div>
-                            <p class="mb-2">info@example.com</p>
-                            <p class="mb-0">support@example.com</p>
-                        </div>
-                        <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="0.4s">
-                            <div class="btn-square mx-auto mb-3">
-                                <i class="fa fa-phone fa-2x text-white"></i>
-                            </div>
-                            <p class="mb-2">+012 345 67890</p>
-                            <p class="mb-0">+012 345 67890</p>
-                        </div>
-                        <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="0.5s">
-                            <div class="btn-square mx-auto mb-3">
-                                <i class="fa fa-map-marker-alt fa-2x text-white"></i>
-                            </div>
-                            <p class="mb-2">123 Street</p>
-                            <p class="mb-0">New York, USA</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Contact Start -->
-
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-primary mb-4">Our Office</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>123 Street, New York, USA
-                    </p>
-                    <p class="mb-2"><i class="fa fa-phone-alt text-primary me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>info@example.com</p>
-                    <div class="d-flex pt-3">
-                        <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i
-                                class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i
-                                class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i
-                                class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-primary mb-4">Quick Links</h4>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Support</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-primary mb-4">Business Hours</h4>
-                    <p class="mb-1">Monday - Friday</p>
-                    <h6 class="text-light">09:00 am - 07:00 pm</h6>
-                    <p class="mb-1">Saturday</p>
-                    <h6 class="text-light">09:00 am - 12:00 pm</h6>
-                    <p class="mb-1">Sunday</p>
-                    <h6 class="text-light">Closed</h6>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-primary mb-4">Newsletter</h4>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                    <div class="position-relative w-100">
-                        <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text"
-                            placeholder="Your email">
-                        <button type="button"
-                            class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
-
-
-    <!-- Copyright Start -->
-    <div class="container-fluid copyright py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="fw-medium" href="#">Your Site Name</a>, All Right Reserved.
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                    Designed By <a class="fw-medium" href="https://htmlcodex.com">HTML Codex</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Copyright End -->
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
-            class="bi bi-arrow-up"></i></a>
-
+    <!-- Form Section End -->
 
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -774,6 +533,37 @@
 
     <!-- Template Javascript -->
     <script src="{{asset('asset/js/main.js')}}"></script>
+
+    <!-- Custom Script for Form Enhancement -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Format KTP input
+            const ktpInput = document.getElementById('no_ktp');
+            if (ktpInput) {
+                ktpInput.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    e.target.value = value;
+                });
+            }
+
+            // Format phone input
+            const telpInput = document.getElementById('telp');
+            if (telpInput) {
+                telpInput.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    e.target.value = value;
+                });
+            }
+
+            // Auto capitalize for name
+            const nameInput = document.getElementById('nama');
+            if (nameInput) {
+                nameInput.addEventListener('input', function(e) {
+                    e.target.value = e.target.value.replace(/\b\w/g, l => l.toUpperCase());
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
