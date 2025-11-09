@@ -22,6 +22,7 @@
                             </div>
                         </div>
                         <a href="{{ route('create') }}" class="nav-item nav-link">tambah umkm</a>
+                        <a href="" class="nav-item nav-link">profile</a>
                     </div>
                     <div class="border-start ps-4 d-none d-lg-block">
                         <button type="button" class="btn btn-sm p-0"><i class="fa fa-search"></i></button>
