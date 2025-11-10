@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Umkm;
+use App\Models\umkm;
 use Illuminate\Http\Request;
 
 class UmkmController extends Controller
 {
     public function index()
     {
-        $dataUmkm = Umkm::all();
+        $datamkm = Umkm::all();
         return view('pages.webview.index  ', compact('dataUmkm'));
 
     }
