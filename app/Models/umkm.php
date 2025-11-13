@@ -37,14 +37,15 @@ class Umkm extends Model
     // Jika kamu pakai timestamps (created_at & updated_at)
     public $timestamps = true;
 
-    // 🔹 Relasi ke tabel lain (opsional, aktifkan kalau sudah ada)
-    // public function warga()
-    // {
-    //     return $this->belongsTo(Warga::class, 'pemilik_warga_id', 'warga_id');
-    // }
+     // Relasi ke tabel lain (opsional, aktifkan kalau sudah ada)
+     public function warga()
+     {
+       return $this->belongsTo(Warga::class, 'pemilik_warga_id', 'warga_id');
+     }
 
-    // public function produk()
-    // {
-    //     return $this->hasMany(Produk::class, 'umkm_id', 'umkm_id');
-    // }
+     public function produk()
+     {
+        return $this->hasMany(Produk::class, 'umkm_id', 'umkm_id');
+     }
 }
+

@@ -16,8 +16,9 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Menu Lainnya</a>
                         <div class="dropdown-menu bg-light rounded-0 m-0">
-                            <a href="{{ url('datamasyarakat') }}" class="dropdown-item">Data Masyarakat</a>
-                            <a href="{{ url('datauser') }}" class="dropdown-item">Data Users</a>
+                            <a href="{{ route('datamasyarakat') }}" class="dropdown-item">Data Masyarakat</a>
+                            <a href="{{ route('datauser') }}" class="dropdown-item">Data Users</a>
+                            <a href="{{ route('produk.index') }}" class="dropdown-item">Produk</a>
                         </div>
                     </div>
                     <a href="{{ route('create') }}" class="nav-item nav-link">Tambah UMKM</a>

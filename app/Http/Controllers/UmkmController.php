@@ -10,13 +10,13 @@ class UmkmController extends Controller
     public function index()
     {
         $dataUmkm = Umkm::all();
-        return view('pages.webview.index  ', compact('dataUmkm'));
+        return view('pages.umkm.index', compact('dataUmkm'));
 
     }
 
     public function create()
     {
-        return view('adminUmkm.create');
+        return view('pages.umkm.create');
     }
 
     public function store(Request $request)
@@ -27,32 +27,32 @@ class UmkmController extends Controller
         ]);
 
         Umkm::create($request->all());
-        return redirect()->route('umkm.index')->with('success', 'Data UMKM berhasil ditambahkan!');
+        return redirect()->route('Umkm.index')->with('success', 'Data UMKM berhasil ditambahkan!');
     }
 
     public function show(string $id)
     {
         $umkm = Umkm::findOrFail($id);
-        return view('adminUmkm.show', compact('umkm'));
+        return view('pages.umkm.show', compact('umkm'));
     }
 
     public function edit(string $id)
     {
         $umkm = Umkm::findOrFail($id);
-        return view('adminUmkm.edit', compact('umkm'));
+        return view('pages.umkm.edit', compact('umkm'));
     }
 
     public function update(Request $request, string $id)
     {
         $umkm = Umkm::findOrFail($id);
         $umkm->update($request->all());
-        return redirect()->route('umkm.index')->with('success', 'Data UMKM berhasil diupdate!');
+        return redirect()->route('Umkm.index')->with('success', 'Data UMKM berhasil diupdate!');
     }
 
     public function destroy(string $id)
     {
         $umkm = Umkm::findOrFail($id);
         $umkm->delete();
-        return redirect()->route('umkm.index')->with('success', 'Data UMKM berhasil dihapus!');
+        return redirect()->route('Umkm.index')->with('success', 'Data UMKM berhasil dihapus!');
     }
 }

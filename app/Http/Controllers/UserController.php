@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class DataUserController extends Controller
+class UserController extends Controller
 {
     // Tampilkan semua user
     public function index()
@@ -36,7 +36,7 @@ class DataUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()->route('datauser.index')->with('success', 'User berhasil ditambahkan');
+        return redirect()->route('User.index')->with('success', 'User berhasil ditambahkan');
     }
 
     // Form edit user
@@ -67,7 +67,7 @@ class DataUserController extends Controller
 
         $user->update($data);
 
-        return redirect()->route('datauser.index')->with('success', 'User berhasil diperbarui');
+        return redirect()->route('User.index')->with('success', 'User berhasil diperbarui');
     }
 
     // Hapus user
@@ -76,6 +76,6 @@ class DataUserController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('datauser.index')->with('success', 'User berhasil dihapus');
+        return redirect()->route('User.index')->with('success', 'User berhasil dihapus');
     }
 }

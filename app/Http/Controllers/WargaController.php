@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Warga;
 use Illuminate\Http\Request;
 
-class DataMasyarakatController extends Controller
+class WargaController extends Controller
 {
     /**
      * Tampilkan daftar warga.
@@ -41,7 +41,7 @@ class DataMasyarakatController extends Controller
 
         Warga::create($request->all());
 
-        return redirect()->route('datamasyarakat.index')
+        return redirect()->route('Warga.index')
             ->with('success', 'Data warga berhasil ditambahkan!');
     }
 
@@ -51,7 +51,7 @@ class DataMasyarakatController extends Controller
     public function show($id)
     {
         $warga = Warga::findOrFail($id);
-        return view('datamasyarakat.show', compact('warga'));
+        return view('pages.warga.show', compact('warga'));
     }
 
     /**
@@ -82,7 +82,7 @@ class DataMasyarakatController extends Controller
 
         $warga->update($request->all());
 
-        return redirect()->route('datamasyarakat.index')
+        return redirect()->route('Warga.index')
             ->with('success', 'Data warga berhasil diperbarui!');
     }
 
@@ -94,7 +94,7 @@ class DataMasyarakatController extends Controller
         $warga = Warga::findOrFail($id);
         $warga->delete();
 
-        return redirect()->route('datamasyarakat.index')
+        return redirect()->route('Warga.index')
             ->with('success', 'Data warga berhasil dihapus!');
     }
 }
