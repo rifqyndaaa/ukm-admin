@@ -9,38 +9,49 @@
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>UMKM</th>
-                <th>Nama Produk</th>
-                <th>Harga</th>
-                <th>Stok</th>
-                <th>Status</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($produks as $produk)
-                <tr>
-                    <td>{{ $produk->produk_id }}</td>
-                    <td>{{ $produk->umkm->nama_umkm ?? '-' }}</td>
-                    <td>{{ $produk->nama_produk }}</td>
-                    <td>Rp {{ number_format($produk->harga, 0, ',', '.') }}</td>
-                    <td>{{ $produk->stok }}</td>
-                    <td>{{ ucfirst($produk->status) }}</td>
-                    <td>
-                        <a href="{{ route('produk.edit', $produk->produk_id) }}" class="btn btn-warning btn-sm">Edit</a>
-                        <form action="{{ route('produk.destroy', $produk->produk_id) }}" method="POST" class="d-inline">
+   <div class="row">
+    @forelse ($produks as $produk)
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $produk->nama_produk }}</h5>
+ 
+                    <p class="card-text mb-1">
+                        <strong>UMKM:</strong> {{ $produk->umkm->nama_usaha ?? '-' }}
+                    </p>
+                    <p class="card-text mb-1">
+                        <strong>Harga:</strong> Rp {{ number_format($produk->harga, 0, ',', '.') }}
+                    </p>
+                    <p class="card-text mb-1">
+                        <strong>Stok:</strong> {{ $produk->stok }}
+                    </p>
+                    <p class="card-text mb-1">
+                        <strong>Status:</strong>
+                        <span class="badge
+                            {{ $produk->status == 'aktif' ? 'bg-success' : 'bg-secondary' }}">
+                            {{ ucfirst($produk->status) }}
+                        </span>
+                    </p>
+
+                    <div class="mt-3 d-flex justify-content-between">
+                        <a href="{{ route('produk.edit', $produk->produk_id) }}"
+                           class="btn btn-warning btn-sm">Edit</a>
+
+                        <form action="{{ route('produk.destroy', $produk->produk_id) }}"
+                              method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin hapus?')">Hapus</button>
+                            <button class="btn btn-danger btn-sm"
+                                onclick="return confirm('Yakin hapus?')">Hapus</button>
                         </form>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    @empty
+        <p class="text-center">Belum ada produk.</p>
+    @endforelse
 </div>
+
 @endsection

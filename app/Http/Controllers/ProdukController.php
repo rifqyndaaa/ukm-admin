@@ -23,7 +23,7 @@ class ProdukController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'umkm_id' => 'required|exists:umkms,id',
+            'umkm_id' => 'required|exists:umkm,umkm_id',
             'nama_produk' => 'required|string|max:255',
             'harga' => 'required|numeric|min:0',
             'stok' => 'required|integer|min:0',
@@ -38,13 +38,13 @@ class ProdukController extends Controller
     {
         $produk = Produk::findOrFail($id);
         $umkms = Umkm::all();
-        return view('produk.edit', compact('produk', 'umkms'));
+        return view('pages.produk.edit', compact('produk', 'umkms'));
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
-            'umkm_id' => 'required|exists:umkms,id',
+            'umkm_id' => 'required|exists:umkm,umkm_id',
             'nama_produk' => 'required|string|max:255',
             'harga' => 'required|numeric|min:0',
             'stok' => 'required|integer|min:0',

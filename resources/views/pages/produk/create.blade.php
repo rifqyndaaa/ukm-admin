@@ -69,7 +69,8 @@
             <label>UMKM</label>
             <select name="umkm_id" class="form-control">
                 @foreach($umkms as $umkm)
-                    <option value="{{ $umkm->id }}">{{ $umkm->nama_umkm }}</option>
+                    <option value="{{ $umkm->umkm_id }}">{{ $umkm->nama_usaha }}</option>
+
                 @endforeach
             </select>
         </div>

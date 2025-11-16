@@ -9,6 +9,7 @@ class Produk extends Model
 {
     use HasFactory;
 
+    protected $table = 'produks';
     protected $primaryKey = 'produk_id';
 
     protected $fillable = [
@@ -22,7 +23,7 @@ class Produk extends Model
 
     public function umkm()
     {
-        return $this->belongsTo(Umkm::class, 'umkm_id');
+        return $this->belongsTo(Umkm::class, 'umkm_id', 'umkm_id');
     }
 }
-    
+
