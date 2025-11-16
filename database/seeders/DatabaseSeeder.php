@@ -1,8 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,20 +10,11 @@ class DatabaseSeeder extends Seeder
      * Seed the application's database.
      */
     public function run(): void
-
-
-{
-    $this->call([
-    CreateWargaSeeder::class,
-$this->call([
-    CreateUserDummySeeder::class,
-]);
-
-]);
-
-
-}
-
-
+    {
+        $this->call([
+            CreateWargaSeeder::class,
+            CreateUmkmDummySeeder::class,
+            // Tambah seeder lainnya di sini
+        ]);
     }
-
+}
