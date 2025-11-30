@@ -14,7 +14,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CreateWargaSeeder::class,
             CreateUmkmDummySeeder::class,
-            // Tambah seeder lainnya di sini
+            CreateProdukDummySeeder::class,
+            UserSeeder::class,
         ]);
     }
 }

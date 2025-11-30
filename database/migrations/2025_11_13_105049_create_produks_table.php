@@ -17,7 +17,10 @@ return new class extends Migration {
             $table->enum('status', ['aktif', 'nonaktif'])->default('aktif');
             $table->timestamps();
 
-            $table->foreign('umkm_id')->references('umkm_id')->on('umkms')->onDelete('cascade');
+            $table->foreign('umkm_id')
+                  ->references('umkm_id')
+                  ->on('umkm')
+                  ->onDelete('cascade');
         });
     }
 

@@ -3,28 +3,28 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Faker\Factory;
+use App\Models\Umkm;
+use Faker\Factory as Faker;
 
 class CreateUmkmDummySeeder extends Seeder
 {
-    public function run()
+    public function run(): void
     {
-        $faker = Factory::create();
+        $faker = Faker::create('id_ID');
 
-        foreach (range(1, 10) as $index) {
-            DB::table('umkm')->insert([
-                'nama_usaha'       => $faker->company,
-                'pemilik_warga_id' => $faker->numberBetween(1, 100),  // dummy ID saja
-                'alamat'           => $faker->streetAddress,
-                'rt'               => $faker->numberBetween(1, 20),
-                'rw'               => $faker->numberBetween(1, 10),
-                'kategori'         => $faker->randomElement(['Kuliner', 'Fashion', 'Elektronik', 'Jasa', 'Pertanian']),
-                'kontak'           => $faker->phoneNumber,
-                'deskripsi'        => $faker->sentence(10),
-                'foto_usaha'       => 'dummy.jpg',
-                'created_at'       => now(),
-                'updated_at'       => now(),
+        for ($i = 1; $i <= 100; $i++) {
+
+            Umkm::create([
+                'nama_usaha' => 'UMKM ' . $faker->company,
+                'pemilik_warga_id' => rand(1, 20), // sesuaikan dengan data warga kamu
+                'alamat' => $faker->address,
+                'rt' => str_pad(rand(1, 20), 2, '0', STR_PAD_LEFT),
+                'rw' => str_pad(rand(1, 20), 2, '0', STR_PAD_LEFT),
+                'kategori' => $faker->randomElement([
+                    'Makanan', 'Minuman', 'Fashion', 'Jasa', 'Kerajinan', 'Sembako'
+                ]),
+                'kontak' => $faker->phoneNumber,
+                'deskripsi' => $faker->text(50),
             ]);
         }
     }

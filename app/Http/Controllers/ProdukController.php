@@ -8,10 +8,32 @@ use Illuminate\Http\Request;
 
 class ProdukController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $produks = Produk::with('umkm')->get();
-        return view('pages.produk.index', compact('produks'));
+        $query = Produk::with('umkm');
+
+        // SEARCH (nama produk)
+        if ($request->filled('search')) {
+            $keyword = $request->search;
+            $query->where('nama_produk', 'LIKE', "%$keyword%");
+        }
+
+        // FILTER BY UMKM
+        if ($request->filled('umkm_id')) {
+            $query->where('umkm_id', $request->umkm_id);
+        }
+
+        // FILTER BY STATUS
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        // PAGINATION
+        $produks = $query->paginate(10)->withQueryString();
+
+        $umkms = Umkm::all();
+
+        return view('pages.produk.index', compact('produks', 'umkms'));
     }
 
     public function create()

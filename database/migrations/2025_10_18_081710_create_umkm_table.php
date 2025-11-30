@@ -4,15 +4,11 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
-    /**
-     * Run the migrations.
-     */
+return new class extends Migration {
     public function up(): void
     {
         Schema::create('umkm', function (Blueprint $table) {
-            $table->increments('umkm_id');
+            $table->id('umkm_id'); // BIGINT unsigned auto increment
             $table->string('nama_usaha', 100);
             $table->unsignedBigInteger('pemilik_warga_id');
             $table->string('alamat', 255);
@@ -22,7 +18,7 @@ return new class extends Migration
             $table->string('kontak', 50)->nullable();
             $table->text('deskripsi')->nullable();
 
-            // 🔹 File opsional
+            // File opsional
             $table->string('foto_usaha')->nullable();
             $table->string('dokumen_izin')->nullable();
             $table->string('banner_promosi')->nullable();
@@ -31,9 +27,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('umkm');

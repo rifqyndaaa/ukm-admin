@@ -2,16 +2,44 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\umkm;
+use App\Models\Umkm;
 use Illuminate\Http\Request;
 
 class UmkmController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $dataUmkm = Umkm::all();
-        return view('pages.umkm.index', compact('dataUmkm'));
+        $query = Umkm::query();
 
+        // -------------------------
+        // 🔍 SEARCH
+        // -------------------------
+        if ($request->filled('search')) {
+            $keyword = $request->search;
+
+            $query->where(function ($q) use ($keyword) {
+                $q->where('nama_usaha', 'LIKE', "%$keyword%")
+                  ->orWhere('alamat', 'LIKE', "%$keyword%");
+            });
+        }
+
+        // -------------------------
+        // 🔎 FILTER (RT / RW)
+        // -------------------------
+        if ($request->filled('rt')) {
+            $query->where('rt', $request->rt);
+        }
+
+        if ($request->filled('rw')) {
+            $query->where('rw', $request->rw);
+        }
+
+        // -------------------------
+        // 📄 PAGINATION
+        // -------------------------
+        $dataUmkm = $query->paginate(10)->withQueryString();
+
+        return view('pages.umkm.index', compact('dataUmkm'));
     }
 
     public function create()

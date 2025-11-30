@@ -8,11 +8,20 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    // Tampilkan semua user
-    public function index()
+    // Tampilkan semua user + search + pagination
+    public function index(Request $request)
     {
-        $users = User::all();
-        return view('pages.datauser.index', compact('users'));
+        $search = $request->input('search');
+
+        $users = User::when($search, function ($query) use ($search) {
+            $query->where('name', 'LIKE', "%$search%")
+                  ->orWhere('email', 'LIKE', "%$search%");
+        })
+        ->orderBy('id', 'desc')
+        ->paginate(100)
+        ->appends(['search' => $search]);
+
+        return view('pages.datauser.index', compact('users', 'search'));
     }
 
     // Form tambah user
