@@ -21,7 +21,7 @@ class CreateUmkmDummySeeder extends Seeder
                 'rt' => str_pad(rand(1, 20), 2, '0', STR_PAD_LEFT),
                 'rw' => str_pad(rand(1, 20), 2, '0', STR_PAD_LEFT),
                 'kategori' => $faker->randomElement([
-                    'Makanan', 'Minuman', 'Fashion', 'Jasa', 'Kerajinan', 'Sembako'
+                    'Makanan', 'Jajanan', 'Fashion', 'Jasa', 'Kerajinan', 'Sembako'
                 ]),
                 'kontak' => $faker->phoneNumber,
                 'deskripsi' => $faker->text(50),
