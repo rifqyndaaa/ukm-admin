@@ -5,9 +5,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Media extends Model
 {
-    protected $table      = 'media';
+    protected $table = 'media';
     protected $primaryKey = 'media_id';
-    public $timestamps    = false;
+    public $timestamps = false;
 
     protected $fillable = [
         'ref_table',
@@ -17,5 +17,6 @@ class Media extends Model
         'mime_type',
         'sort_order',
     ];
-};
+}
+
 

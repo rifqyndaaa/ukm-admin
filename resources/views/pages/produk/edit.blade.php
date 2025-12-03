@@ -1,99 +1,78 @@
 @extends('layout.app')
 
 @section('content')
-<style>
-    body {
-        background: #f5f7fa;
-        font-family: 'Poppins', sans-serif;
-    }
+<div class="card">
+    <div class="card-header">
+        <h4>Edit Produk</h4>
+    </div>
 
-    .form-container {
-        max-width: 700px;
-        background: #fff;
-        margin: 50px auto;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        padding: 30px 40px;
-    }
+    <div class="card-body">
+        <form action="{{ route('produk.update', $produk->produk_id) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
 
-    h2 {
-        font-weight: 600;
-        color: #2d3748;
-        text-align: center;
-        margin-bottom: 25px;
-    }
+            <div class="mb-3">
+                <label class="form-label">Pilih UMKM</label>
+                <select name="umkm_id" class="form-control" required>
+                    @foreach ($umkms as $u)
+                        <option value="{{ $u->umkm_id }}"
+                            {{ $u->umkm_id == $produk->umkm_id ? 'selected' : '' }}>
+                            {{ $u->nama_usaha }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
 
-    label {
-        font-weight: 500;
-        color: #4a5568;
-    }
+            <div class="mb-3">
+                <label class="form-label">Nama Produk</label>
+                <input type="text" name="nama_produk" value="{{ $produk->nama_produk }}" class="form-control" required>
+            </div>
 
-    .form-control {
-        border-radius: 10px;
-        border: 1px solid #cbd5e0;
-    }
+            <div class="mb-3">
+                <label class="form-label">Harga</label>
+                <input type="number" step="0.01" name="harga" value="{{ $produk->harga }}" class="form-control" required>
+            </div>
 
-    .btn-success {
-        width: 100%;
-        padding: 10px;
-        font-weight: 600;
-        border-radius: 10px;
-        background: linear-gradient(90deg, #38b2ac, #319795);
-        border: none;
-    }
-</style>
+            <div class="mb-3">
+                <label class="form-label">Stok</label>
+                <input type="number" name="stok" value="{{ $produk->stok }}" class="form-control" required>
+            </div>
 
-<div class="form-container">
-    <h2>Edit Produk</h2>
+            <div class="mb-3">
+                <label class="form-label">Status</label>
+                <select name="status" class="form-control" required>
+                    <option value="aktif" {{ $produk->status == 'aktif' ? 'selected' : '' }}>Aktif</option>
+                    <option value="nonaktif" {{ $produk->status == 'nonaktif' ? 'selected' : '' }}>Nonaktif</option>
+                </select>
+            </div>
 
-    <form action="{{ route('produk.update', $produk->produk_id) }}" method="POST">
-        @csrf
-        @method('PUT')
+            <div class="mb-3">
+                <label class="form-label">Media Produk (Upload baru bila ingin mengganti)</label>
+                <input type="file" name="media_produk" class="form-control">
+            </div>
 
-        <div class="mb-3">
-            <label>UMKM</label>
-            <select name="umkm_id" class="form-control">
-                @foreach($umkms as $umkm)
-                    <option value="{{ $umkm->umkm_id }}"
-                        {{ $produk->umkm_id == $umkm->umkm_id ? 'selected' : '' }}>
-                        {{ $umkm->nama_usaha }}
-                    </option>
-                @endforeach
-            </select>
-        </div>
+            @php
+                $media = $produk->media->first();
+            @endphp
 
-        <div class="mb-3">
-            <label>Nama Produk</label>
-            <input type="text" name="nama_produk" class="form-control"
-                   value="{{ $produk->nama_produk }}">
-        </div>
+            @if ($media)
+                <div class="mb-3">
+                    <label class="form-label">Media Saat Ini</label><br>
 
-        <div class="mb-3">
-            <label>Deskripsi</label>
-            <textarea name="deskripsi" class="form-control">{{ $produk->deskripsi }}</textarea>
-        </div>
+                    @if(str_contains($media->mime_type, 'image'))
+                        <img src="{{ asset('storage/' . $media->file_url) }}"
+                             alt="Media Produk" class="img-thumbnail" width="200">
+                    @else
+                        <a href="{{ asset('storage/' . $media->file_url) }}" target="_blank" class="btn btn-info">
+                            Lihat File
+                        </a>
+                    @endif
+                </div>
+            @endif
 
-        <div class="mb-3">
-            <label>Harga</label>
-            <input type="number" step="0.01" name="harga" class="form-control"
-                   value="{{ $produk->harga }}">
-        </div>
-
-        <div class="mb-3">
-            <label>Stok</label>
-            <input type="number" name="stok" class="form-control"
-                   value="{{ $produk->stok }}">
-        </div>
-
-        <div class="mb-3">
-            <label>Status</label>
-            <select name="status" class="form-control">
-                <option value="aktif" {{ $produk->status == 'aktif' ? 'selected' : '' }}>Aktif</option>
-                <option value="nonaktif" {{ $produk->status == 'nonaktif' ? 'selected' : '' }}>Nonaktif</option>
-            </select>
-        </div>
-
-        <button class="btn btn-success">Update</button>
-    </form>
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a href="{{ route('produk.index') }}" class="btn btn-secondary">Kembali</a>
+        </form>
+    </div>
 </div>
 @endsection

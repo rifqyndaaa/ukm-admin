@@ -1,109 +1,56 @@
 @extends('layout.app')
 
 @section('content')
-<style>
-    /* ==== Custom Styling (tanpa ubah fungsi form) ==== */
-    body {
-        background: #f5f7fa;
-        font-family: 'Poppins', sans-serif;
-    }
+<div class="card">
+    <div class="card-header">
+        <h4>Tambah Produk</h4>
+    </div>
 
-    .form-container {
-        max-width: 700px;
-        background: #fff;
-        margin: 50px auto;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        padding: 30px 40px;
-        transition: 0.3s ease;
-    }
+    <div class="card-body">
+        <form action="{{ route('produk.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
 
-    .form-container:hover {
-        transform: scale(1.01);
-    }
+            <div class="mb-3">
+                <label class="form-label">Pilih UMKM</label>
+                <select name="umkm_id" class="form-control" required>
+                    <option value="">-- Pilih UMKM --</option>
+                    @foreach ($umkms as $u)
+                        <option value="{{ $u->umkm_id }}">{{ $u->nama_usaha }}</option>
+                    @endforeach
+                </select>
+            </div>
 
-    h2 {
-        font-weight: 600;
-        color: #2d3748;
-        text-align: center;
-        margin-bottom: 25px;
-    }
+            <div class="mb-3">
+                <label class="form-label">Nama Produk</label>
+                <input type="text" name="nama_produk" class="form-control" required>
+            </div>
 
-    label {
-        font-weight: 500;
-        color: #4a5568;
-    }
+            <div class="mb-3">
+                <label class="form-label">Harga</label>
+                <input type="number" step="0.01" name="harga" class="form-control" required>
+            </div>
 
-    .form-control {
-        border-radius: 10px;
-        border: 1px solid #cbd5e0;
-        transition: 0.3s;
-    }
+            <div class="mb-3">
+                <label class="form-label">Stok</label>
+                <input type="number" name="stok" class="form-control" required>
+            </div>
 
-    .form-control:focus {
-        border-color: #38b2ac;
-        box-shadow: 0 0 0 0.2rem rgba(56, 178, 172, 0.25);
-    }
+            <div class="mb-3">
+                <label class="form-label">Status</label>
+                <select name="status" class="form-control" required>
+                    <option value="aktif">Aktif</option>
+                    <option value="nonaktif">Nonaktif</option>
+                </select>
+            </div>
 
-    .btn-success {
-        width: 100%;
-        padding: 10px;
-        font-weight: 600;
-        border-radius: 10px;
-        background: linear-gradient(90deg, #38b2ac, #319795);
-        border: none;
-        transition: 0.3s;
-    }
+            <div class="mb-3">
+                <label class="form-label">Media Produk (Gambar/Dokumen)</label>
+                <input type="file" name="media_produk" class="form-control">
+            </div>
 
-    .btn-success:hover {
-        background: linear-gradient(90deg, #2c7a7b, #285e61);
-    }
-</style>
-
-<div class="form-container">
-    <h2>Tambah Produk</h2>
-
-    <form action="{{ route('produk.store') }}" method="POST">
-        @csrf
-        <div class="mb-3">
-            <label>UMKM</label>
-            <select name="umkm_id" class="form-control">
-                @foreach($umkms as $umkm)
-                    <option value="{{ $umkm->umkm_id }}">{{ $umkm->nama_usaha }}</option>
-
-                @endforeach
-            </select>
-        </div>
-
-        <div class="mb-3">
-            <label>Nama Produk</label>
-            <input type="text" name="nama_produk" class="form-control">
-        </div>
-
-        <div class="mb-3">
-            <label>Deskripsi</label>
-            <textarea name="deskripsi" class="form-control"></textarea>
-        </div>
-
-        <div class="mb-3">
-            <label>Harga</label>
-            <input type="number" step="0.01" name="harga" class="form-control">
-        </div>
-
-        <div class="mb-3">
-            <label>Stok</label>
-            <input type="number" name="stok" class="form-control">
-        </div>
-
-        <div class="mb-3">
-            <label>Status</label>
-            <select name="status" class="form-control">
-                <option value="aktif">Aktif</option>
-                <option value="nonaktif">Nonaktif</option>
-            </select>
-        </div>
-
-        <button class="btn btn-success">Simpan</button>
-    </form>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+            <a href="{{ route('produk.index') }}" class="btn btn-secondary">Kembali</a>
+        </form>
+    </div>
 </div>
 @endsection

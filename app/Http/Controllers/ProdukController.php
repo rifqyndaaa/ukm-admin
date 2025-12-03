@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Produk;
 use App\Models\Umkm;
+use App\Models\Media;
 use Illuminate\Http\Request;
 
 class ProdukController extends Controller
@@ -12,26 +13,20 @@ class ProdukController extends Controller
     {
         $query = Produk::with('umkm');
 
-        // SEARCH (nama produk)
         if ($request->filled('search')) {
-            $keyword = $request->search;
-            $query->where('nama_produk', 'LIKE', "%$keyword%");
+            $query->where('nama_produk', 'LIKE', "%{$request->search}%");
         }
 
-        // FILTER BY UMKM
         if ($request->filled('umkm_id')) {
             $query->where('umkm_id', $request->umkm_id);
         }
 
-        // FILTER BY STATUS
         if ($request->filled('status')) {
             $query->where('status', $request->status);
         }
 
-        // PAGINATION
         $produks = $query->paginate(10)->withQueryString();
-
-        $umkms = Umkm::all();
+        $umkms   = Umkm::all();
 
         return view('pages.produk.index', compact('produks', 'umkms'));
     }
@@ -52,14 +47,24 @@ class ProdukController extends Controller
             'status' => 'required|in:aktif,nonaktif',
         ]);
 
-        Produk::create($request->all());
+        // INSERT tanpa media
+        $produk = Produk::create(
+            $request->except(['media_produk'])
+        );
+
+        $produk_id = $produk->produk_id;
+
+        // SIMPAN SATU MEDIA
+        $this->saveMedia($request, $produk_id);
+
         return redirect()->route('produk.index')->with('success', 'Produk berhasil ditambahkan');
     }
 
     public function edit($id)
     {
         $produk = Produk::findOrFail($id);
-        $umkms = Umkm::all();
+        $umkms  = Umkm::all();
+
         return view('pages.produk.edit', compact('produk', 'umkms'));
     }
 
@@ -74,14 +79,60 @@ class ProdukController extends Controller
         ]);
 
         $produk = Produk::findOrFail($id);
-        $produk->update($request->all());
+
+        // UPDATE tanpa media
+        $produk->update(
+            $request->except(['media_produk'])
+        );
+
+        $produk_id = $produk->produk_id;
+
+        // GANTI MEDIA (jika upload baru)
+        $this->replaceMedia($request, $produk_id);
+
         return redirect()->route('produk.index')->with('success', 'Produk berhasil diperbarui');
     }
 
     public function destroy($id)
     {
-        $produk = Produk::findOrFail($id);
-        $produk->delete();
+        // HAPUS MEDIA
+        Media::where('ref_table', 'produk')
+             ->where('ref_id', $id)
+             ->delete();
+
+        Produk::destroy($id);
+
         return redirect()->route('produk.index')->with('success', 'Produk berhasil dihapus');
+    }
+
+    // ============================================================
+    // MEDIA HANDLER (SATU FILE)
+    // ============================================================
+    private function saveMedia($request, $produk_id)
+    {
+        if (!$request->hasFile('media_produk')) return;
+
+        $file = $request->file('media_produk');
+        $path = $file->store('uploads/produk', 'public');
+
+        Media::create([
+            'ref_table' => 'produk',
+            'ref_id' => $produk_id,
+            'file_url' => $path,
+            'caption' => 'media_produk',
+            'mime_type' => $file->getClientMimeType(),
+            'sort_order' => 0,
+        ]);
+    }
+
+    private function replaceMedia($request, $produk_id)
+    {
+        if (!$request->hasFile('media_produk')) return;
+
+        Media::where('ref_table', 'produk')
+             ->where('ref_id', $produk_id)
+             ->delete();
+
+        $this->saveMedia($request, $produk_id);
     }
 }

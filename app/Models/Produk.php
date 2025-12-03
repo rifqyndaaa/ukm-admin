@@ -25,5 +25,13 @@ class Produk extends Model
     {
         return $this->belongsTo(Umkm::class, 'umkm_id', 'umkm_id');
     }
+
+    // ✅ Relasi media yang benar
+    public function media()
+{
+    return $this->hasMany(Media::class, 'ref_id', 'produk_id')
+        ->where('ref_table', 'produk') // sudah konsisten
+        ->orderBy('sort_order', 'ASC');
 }
 
+}
