@@ -18,5 +18,3 @@ class Media extends Model
         'sort_order',
     ];
 }
-
-

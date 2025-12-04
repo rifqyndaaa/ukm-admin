@@ -20,4 +20,20 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    // RELASI MEDIA
+    public function media()
+    {
+        return $this->hasMany(Media::class, 'ref_id')
+                    ->where('ref_table', 'users')
+                    ->orderBy('sort_order', 'asc');
+    }
+
+    // Foto pertama (1 user = 1 foto)
+    public function foto()
+    {
+        return $this->hasOne(Media::class, 'ref_id')
+                    ->where('ref_table', 'users')
+                    ->orderBy('sort_order', 'asc');
+    }
 }

@@ -4,7 +4,9 @@
 <div class="container mt-4">
     <div class="card shadow-lg border-0 rounded-3">
         <div class="card-header bg-primary text-white text-center py-3">
-            <h2 class="mb-0"><i class="fas fa-users me-2"></i> Data User</h2>
+            <h2 class="mb-0">
+                <i class="fas fa-users me-2"></i> Data User
+            </h2>
         </div>
 
         <div class="card-body">
@@ -54,9 +56,19 @@
                 @forelse($users as $user)
                 <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
                     <div class="card shadow-sm h-100 p-3 text-center">
-                        <div class="user-avatar bg-secondary text-white rounded-circle mx-auto mb-3"
-                             style="width:60px;height:60px;display:flex;align-items:center;justify-content:center;font-size:24px;">
-                            {{ strtoupper(substr($user->name, 0, 1)) }}
+
+                        <!-- FOTO -->
+                        <div class="mb-3">
+                            @if($user->foto)
+                                <img src="{{ asset('storage/' . $user->foto->file_url) }}"
+                                     class="rounded-circle"
+                                     style="width: 60px; height: 60px; object-fit: cover;">
+                            @else
+                                <div class="bg-secondary text-white rounded-circle mx-auto"
+                                     style="width:60px;height:60px;display:flex;align-items:center;justify-content:center;font-size:24px;">
+                                    {{ strtoupper(substr($user->name, 0, 1)) }}
+                                </div>
+                            @endif
                         </div>
 
                         <h5>{{ $user->name }}</h5>
@@ -81,7 +93,7 @@
                 @endforelse
             </div>
 
-            <!-- Pagination Bootstrap 5 -->
+            <!-- Pagination -->
             <div class="mt-4 d-flex justify-content-center">
                 {{ $users->links('pagination::bootstrap-5') }}
             </div>
