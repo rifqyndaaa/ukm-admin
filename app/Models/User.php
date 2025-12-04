@@ -14,6 +14,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+          'role', // ⬅ WAJIB DITAMBAH
     ];
 
     protected $hidden = [
@@ -21,19 +22,11 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    // RELASI MEDIA
-    public function media()
-    {
-        return $this->hasMany(Media::class, 'ref_id')
-                    ->where('ref_table', 'users')
-                    ->orderBy('sort_order', 'asc');
-    }
-
-    // Foto pertama (1 user = 1 foto)
+    // RELASI: User punya 1 foto profil
     public function foto()
     {
         return $this->hasOne(Media::class, 'ref_id')
                     ->where('ref_table', 'users')
-                    ->orderBy('sort_order', 'asc');
+                    ->where('caption', 'foto');
     }
 }

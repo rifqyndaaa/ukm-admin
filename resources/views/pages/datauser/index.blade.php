@@ -1,105 +1,71 @@
 @extends('layout.app')
+
 @section('content')
-
 <div class="container mt-4">
-    <div class="card shadow-lg border-0 rounded-3">
-        <div class="card-header bg-primary text-white text-center py-3">
-            <h2 class="mb-0">
-                <i class="fas fa-users me-2"></i> Data User
-            </h2>
-        </div>
 
-        <div class="card-body">
+    <h3 class="mb-3">Data User</h3>
 
-            <!-- Tombol Tambah -->
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <a href="{{ route('User.create') }}" class="btn btn-primary">
-                    <i class="fas fa-plus-circle me-1"></i> Tambah User
-                </a>
-            </div>
+    {{-- SEARCH --}}
+    <form method="GET" class="mb-3 d-flex" style="gap:10px;">
+        <input type="text" name="search" class="form-control" placeholder="Cari user..."
+               value="{{ request('search') }}">
+        <button class="btn btn-primary">Cari</button>
+    </form>
 
-            <!-- Alert -->
-            @if(session('success'))
-                <div class="alert alert-success alert-dismissible fade show">
-                    {{ session('success') }}
-                    <button class="btn-close" data-bs-dismiss="alert"></button>
-                </div>
-            @endif
+    <a href="{{ route('User.create') }}" class="btn btn-success mb-3">+ Tambah User</a>
 
-            <!-- Search -->
-            <form action="{{ route('User.index') }}" method="GET">
-                <div class="input-group mb-4">
-                    <span class="input-group-text bg-light border-0">
-                        <i class="fas fa-search text-muted"></i>
-                    </span>
-
-                    <input type="text"
-                           name="search"
-                           value="{{ $search }}"
-                           class="form-control border-0 bg-light"
-                           placeholder="Cari user berdasarkan nama / email...">
-
-                    @if($search)
-                    <a href="{{ route('User.index') }}" class="btn btn-outline-secondary">
-                        <i class="fas fa-times"></i> Reset
-                    </a>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th width="80">Foto</th>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>Role</th> {{-- ⬅ Tambahan --}}
+                <th width="180">Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse($users as $u)
+            <tr>
+                <td>
+                    @if($u->foto)
+                        <img src="{{ asset('storage/' . $u->foto->file_url) }}" width="60" class="rounded">
+                    @else
+                        <span class="text-muted">Tidak ada</span>
                     @endif
+                </td>
 
-                    <button class="btn btn-primary">
-                        <i class="fas fa-search"></i> Cari
-                    </button>
-                </div>
-            </form>
+                <td>{{ $u->name }}</td>
+                <td>{{ $u->email }}</td>
 
-            <!-- Card View -->
-            <div class="row">
-                @forelse($users as $user)
-                <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                    <div class="card shadow-sm h-100 p-3 text-center">
+                <td>
+                    <span class="badge bg-info text-dark px-3 py-2">
+                        {{ $u->role ?? '-' }}
+                    </span>
+                </td>
 
-                        <!-- FOTO -->
-                        <div class="mb-3">
-                            @if($user->foto)
-                                <img src="{{ asset('storage/' . $user->foto->file_url) }}"
-                                     class="rounded-circle"
-                                     style="width: 60px; height: 60px; object-fit: cover;">
-                            @else
-                                <div class="bg-secondary text-white rounded-circle mx-auto"
-                                     style="width:60px;height:60px;display:flex;align-items:center;justify-content:center;font-size:24px;">
-                                    {{ strtoupper(substr($user->name, 0, 1)) }}
-                                </div>
-                            @endif
-                        </div>
+                <td>
+                    <a href="{{ route('User.edit', $u->id) }}"
+                       class="btn btn-sm btn-warning">Edit</a>
 
-                        <h5>{{ $user->name }}</h5>
-                        <p class="text-muted">{{ $user->email }}</p>
+                    <form action="{{ route('User.destroy', $u->id) }}" method="POST" class="d-inline">
+                        @csrf
+                        @method('DELETE')
+                        <button onclick="return confirm('Hapus user?')"
+                                class="btn btn-sm btn-danger">
+                            Hapus
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            @empty
+            <tr>
+                <td colspan="5" class="text-center">Tidak ada data.</td>
+            </tr>
+            @endforelse
+        </tbody>
+    </table>
 
-                        <a href="{{ route('User.edit', $user->id) }}" class="btn btn-warning btn-sm mb-1">
-                            <i class="fas fa-edit"></i> Edit
-                        </a>
-
-                        <form action="{{ route('User.destroy', $user->id) }}" method="POST" class="d-inline">
-                            @csrf @method('DELETE')
-                            <button class="btn btn-danger btn-sm" onclick="return confirm('Hapus user ini?')">
-                                <i class="fas fa-trash"></i> Hapus
-                            </button>
-                        </form>
-                    </div>
-                </div>
-                @empty
-                <div class="col-12 text-center">
-                    <h4 class="text-muted">Tidak ada data</h4>
-                </div>
-                @endforelse
-            </div>
-
-            <!-- Pagination -->
-            <div class="mt-4 d-flex justify-content-center">
-                {{ $users->links('pagination::bootstrap-5') }}
-            </div>
-
-        </div>
-    </div>
+    {{ $users->links() }}
 </div>
-
 @endsection

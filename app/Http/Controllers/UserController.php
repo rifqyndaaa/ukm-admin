@@ -6,77 +6,57 @@ use App\Models\User;
 use App\Models\Media;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
-    // Tampilkan semua user + search + pagination
     public function index(Request $request)
     {
-        $search = $request->input('search');
-
-        $users = User::when($search, function ($query) use ($search) {
-                $query->where('name', 'LIKE', "%$search%")
-                      ->orWhere('email', 'LIKE', "%$search%");
+        $users = User::with('foto')
+            ->when($request->search, function ($query) use ($request) {
+                $query->where('name', 'LIKE', "%{$request->search}%")
+                      ->orWhere('email', 'LIKE', "%{$request->search}%");
             })
-            ->with('foto') // supaya foto ikut keambil
             ->orderBy('id', 'desc')
-            ->paginate(100)
-            ->appends(['search' => $search]);
+            ->paginate(20);
 
-        return view('pages.datauser.index', compact('users', 'search'));
+        return view('pages.datauser.index', compact('users'));
     }
 
-    // Form tambah user
     public function create()
     {
         return view('pages.datauser.create');
     }
 
-    // Simpan user baru
     public function store(Request $request)
     {
         $request->validate([
             'name'     => 'required|string|max:255',
             'email'    => 'required|email|unique:users,email',
             'password' => 'required|min:6',
-            'foto'     => 'nullable|image|max:2048'
+            'role'     => 'required|in:admin,user',
+            'foto'     => 'nullable|image|max:2048',
         ]);
 
         $user = User::create([
             'name'     => $request->name,
             'email'    => $request->email,
             'password' => Hash::make($request->password),
+            'role'     => $request->role,
         ]);
 
-        // Upload foto
-        if ($request->hasFile('foto')) {
-
-            $file = $request->file('foto');
-            $path = $file->store('uploads/user', 'public');
-
-            Media::create([
-                'ref_table' => 'users',
-                'ref_id'    => $user->id,
-                'file_url'  => $path,
-                'caption'   => 'Foto Profil',
-                'mime_type' => $file->getClientMimeType(),
-                'sort_order'=> 1,
-            ]);
-        }
+        // simpan foto
+        $this->saveMedia($request, $user->id, 'foto');
 
         return redirect()->route('User.index')
             ->with('success', 'User berhasil ditambahkan');
     }
 
-    // Form edit user
     public function edit($id)
     {
         $user = User::with('foto')->findOrFail($id);
-        return view('pages.datauser.create', compact('user'));
+        return view('pages.datauser.edit', compact('user'));
     }
 
-    // Update user
     public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
@@ -84,13 +64,11 @@ class UserController extends Controller
         $request->validate([
             'name'  => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $user->id,
-            'foto'  => 'nullable|image|max:2048'
+            'role'  => 'required|in:admin,user',
+            'foto'  => 'nullable|image|max:2048',
         ]);
 
-        $data = [
-            'name'  => $request->name,
-            'email' => $request->email,
-        ];
+        $data = $request->only(['name', 'email', 'role']);
 
         if ($request->filled('password')) {
             $data['password'] = Hash::make($request->password);
@@ -98,53 +76,56 @@ class UserController extends Controller
 
         $user->update($data);
 
-        // Upload baru (replace)
-        if ($request->hasFile('foto')) {
-
-            // Hapus foto lama jika ada
-            $old = $user->foto;
-            if ($old) {
-                if (Storage::disk('public')->exists($old->file_url)) {
-                    Storage::disk('public')->delete($old->file_url);
-                }
-                $old->delete();
-            }
-
-            // Upload baru
-            $file = $request->file('foto');
-            $path = $file->store('uploads/user', 'public');
-
-            Media::create([
-                'ref_table' => 'users',
-                'ref_id'    => $user->id,
-                'file_url'  => $path,
-                'caption'   => 'Foto Profil',
-                'mime_type' => $file->getClientMimeType(),
-                'sort_order'=> 1,
-            ]);
-        }
+        // replace foto
+        $this->replaceMedia($request, $user->id, 'foto');
 
         return redirect()->route('User.index')
             ->with('success', 'User berhasil diperbarui');
     }
 
-    // Hapus user
     public function destroy($id)
     {
-        $user = User::findOrFail($id);
+        Media::where('ref_table', 'users')
+            ->where('ref_id', $id)
+            ->where('caption', 'foto')
+            ->delete();
 
-        // Hapus foto media
-        $media = $user->foto;
-        if ($media) {
-            if (Storage::disk('public')->exists($media->file_url)) {
-                Storage::disk('public')->delete($media->file_url);
-            }
-            $media->delete();
-        }
-
-        $user->delete();
+        User::destroy($id);
 
         return redirect()->route('User.index')
             ->with('success', 'User berhasil dihapus');
+    }
+
+    // ============================================================
+    // MEDIA HANDLER
+    // ============================================================
+
+    private function saveMedia($request, $id, $input)
+    {
+        if (!$request->hasFile($input)) return;
+
+        $file = $request->file($input);
+        $path = $file->store('uploads/user', 'public');
+
+        Media::create([
+            'ref_table' => 'users',
+            'ref_id'    => $id,
+            'file_url'  => $path,
+            'caption'   => $input,
+            'mime_type' => $file->getClientMimeType(),
+            'sort_order'=> 0,
+        ]);
+    }
+
+    private function replaceMedia($request, $id, $input)
+    {
+        if (!$request->hasFile($input)) return;
+
+        Media::where('ref_table', 'users')
+            ->where('ref_id', $id)
+            ->where('caption', $input)
+            ->delete();
+
+        $this->saveMedia($request, $id, $input);
     }
 }

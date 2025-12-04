@@ -20,18 +20,13 @@
                     <a href="{{ route('store') }}"
                         class="nav-item nav-link {{ request()->routeIs('store') ? 'active' : '' }}">Store</a>
 
-                    <div
-                        class="nav-item dropdown {{ request()->routeIs('feature.*', 'blog.*', 'testimonial.*', 'error.*') ? 'active' : '' }}">
+                    <div class="nav-item dropdown {{ request()->routeIs('feature.*', 'blog.*', 'testimonial.*', 'error.*') ? 'active' : '' }}">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu bg-light rounded-0 m-0">
-                            <a href="{{ route('Warga.index') }}"
-                                class="dropdown-item {{ request()->routeIs('Warga.*') ? 'active' : '' }}">Warga</a>
-                            <a href="{{ route('User.index') }}"
-                                class="dropdown-item {{ request()->routeIs('User.*') ? 'active' : '' }}">User</a>
-                            <a href="{{ route('Umkm.index') }}"
-                                class="dropdown-item {{ request()->routeIs('Umkm.*') ? 'active' : '' }}">Umkm</a>
-                            <a href="{{ route('produk.index') }}"
-                                class="dropdown-item {{ request()->routeIs('produk.*') ? 'active' : '' }}">Produk</a>
+                            <a href="{{ route('Warga.index') }}" class="dropdown-item {{ request()->routeIs('Warga.*') ? 'active' : '' }}">Warga</a>
+                            <a href="{{ route('User.index') }}" class="dropdown-item {{ request()->routeIs('User.*') ? 'active' : '' }}">User</a>
+                            <a href="{{ route('Umkm.index') }}" class="dropdown-item {{ request()->routeIs('Umkm.*') ? 'active' : '' }}">Umkm</a>
+                            <a href="{{ route('produk.index') }}" class="dropdown-item {{ request()->routeIs('produk.*') ? 'active' : '' }}">Produk</a>
                         </div>
                     </div>
 
@@ -44,6 +39,31 @@
                         <i class="fa fa-search"></i>
                     </button>
                 </div>
+
+                {{-- LOGIN / USER SESSION --}}
+                <div class="ms-3">
+                    @if(Auth::check())
+                        <div class="dropdown">
+                            <a href="#" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">
+                                {{ Auth::user()->name }}
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
+                                </li>
+                                <li>
+                                    <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                                        @csrf
+                                        <button type="submit" class="dropdown-item">Logout</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    @else
+                        <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
+                    @endif
+                </div>
+
             </div>
         </nav>
     </div>
