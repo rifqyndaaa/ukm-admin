@@ -44,7 +44,7 @@ Route::middleware(['auth'])->group(function () {
     // ========================
     Route::middleware(['checkrole:admin'])->group(function () {
 
-        Route::resource('User', UserController::class);
+         Route::resource('User', UserController::class);
         Route::resource('Warga', WargaController::class);
         Route::resource('Umkm', UmkmController::class);
         Route::resource('produk', ProdukController::class);
@@ -70,3 +70,5 @@ Route::middleware(['auth'])->group(function () {
     });
 
 });
+
+

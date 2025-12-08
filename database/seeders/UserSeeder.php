@@ -10,19 +10,30 @@ class UserSeeder extends Seeder
 {
     public function run(): void
     {
+        // Admin akun
         User::updateOrCreate(
-            ['email' => 'admin@example.com'], // cek berdasarkan email
+            ['email' => 'admin@desa.id'], // email Indonesia
             [
-                'name' => 'Administrator',
-                'password' => Hash::make('password123'),
+                'name' => 'Admin Desa',
+                'password' => Hash::make('admin123'), // password lebih simpel
             ]
         );
 
+        // User biasa
         User::updateOrCreate(
-            ['email' => 'user@example.com'],
+            ['email' => 'warga@desa.id'],
             [
-                'name' => 'User Biasa',
-                'password' => Hash::make('userpassword'),
+                'name' => 'Warga Desa',
+                'password' => Hash::make('warga123'),
+            ]
+        );
+
+        // Tambahan contoh user petugas
+        User::updateOrCreate(
+            ['email' => 'petugas@desa.id'],
+            [
+                'name' => 'Petugas Lapangan',
+                'password' => Hash::make('petugas123'),
             ]
         );
     }
