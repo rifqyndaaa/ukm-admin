@@ -1,12 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\WargaController;
+use App\Http\Controllers\MediaController;
+use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ProdukController;
-use App\Http\Controllers\MediaController;
+use App\Http\Controllers\WargaController;
+use Illuminate\Support\Facades\Route;
 
 // ========================
 // AUTH ROUTES
@@ -19,7 +19,7 @@ Route::get('/register', [AuthController::class, 'showRegister'])->name('register
 Route::post('/register', [AuthController::class, 'register'])->name('register.process');
 
 // ========================
-// PUBLIC PAGES
+// PUBLIC PAGES (Semua Bisa Akses)
 // ========================
 Route::get('/', function () { return view('pages.webview.index'); })->name('home');
 Route::view('/about', 'pages.webview.about')->name('about');
@@ -28,39 +28,45 @@ Route::view('/store', 'pages.webview.store')->name('store');
 Route::view('/blog', 'pages.webview.blog')->name('blog');
 Route::view('/contact', 'pages.webview.contact')->name('contact');
 
+
 // ========================
-// PROTECTED ROUTES (LOGIN REQUIRED)
+// PROTECTED ROUTES (HARUS LOGIN)
 // ========================
 Route::middleware(['auth'])->group(function () {
 
-    // DASHBOARD
+    // Dashboard
     Route::get('/dashboard', function () {
         return view('pages.webview.index');
     })->name('dashboard');
 
-    // RESOURCE ROUTES
-    Route::resource('Warga', WargaController::class);
-    Route::resource('Umkm', UmkmController::class);
-    Route::resource('User', UserController::class);
-    Route::resource('produk', ProdukController::class);
-
-    // MEDIA ROUTES
-    Route::prefix('media')->group(function () {
-        Route::get('/', [MediaController::class, 'index'])->name('media.index');
-        Route::post('/', [MediaController::class, 'store'])->name('media.store');
-        Route::get('/{id}', [MediaController::class, 'show'])->name('media.show');
-        Route::put('/{id}', [MediaController::class, 'update'])->name('media.update');
-        Route::delete('/{id}', [MediaController::class, 'destroy'])->name('media.destroy');
-    });
-
     // ========================
-    // ADMIN ONLY ROUTES
+    // ADMIN AREA — FULL ACCESS
     // ========================
     Route::middleware(['checkrole:admin'])->group(function () {
-        // Contoh: hanya admin yang bisa akses User, Warga, Umkm
+
         Route::resource('User', UserController::class);
         Route::resource('Warga', WargaController::class);
         Route::resource('Umkm', UmkmController::class);
+        Route::resource('produk', ProdukController::class);
+
+        // MEDIA hanya admin
+        Route::prefix('media')->group(function () {
+            Route::get('/', [MediaController::class, 'index'])->name('media.index');
+            Route::post('/', [MediaController::class, 'store'])->name('media.store');
+            Route::get('/{id}', [MediaController::class, 'show'])->name('media.show');
+            Route::put('/{id}', [MediaController::class, 'update'])->name('media.update');
+            Route::delete('/{id}', [MediaController::class, 'destroy'])->name('media.destroy');
+        });
+    });
+
+    // ========================
+    // USER AREA — akses terbatas
+    // ========================
+    Route::middleware(['checkrole:user'])->group(function () {
+
+        // User hanya bisa kelola produk dan warga miliknya
+        Route::resource('produk', ProdukController::class);
+        Route::resource('warga', WargaController::class);
     });
 
 });
