@@ -64,7 +64,7 @@ Route::middleware(['auth'])->group(function () {
     // ========================
     Route::middleware(['checkrole:user'])->group(function () {
 
-        // User hanya bisa kelola produk dan warga miliknya
+   
         Route::resource('produk', ProdukController::class);
         Route::resource('warga', WargaController::class);
     });

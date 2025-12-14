@@ -159,18 +159,39 @@
 }
 
 
-/*** Header ***/
-.carousel-caption {
+carousel-caption {
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     display: flex;
     align-items: center;
-    background: rgba(136, 180, 78, .7);
     z-index: 1;
 }
 
+/* Warna teks untuk judul & subjudul */
+.carousel-caption h1,
+.carousel-caption h2,
+.carousel-caption p {
+    color: #FFFFFF !important;
+    text-shadow: 0 4px 15px rgba(0,0,0,1) !important;
+    font-weight: 800;
+}
+
+.carousel-caption .btn {
+    background: rgba(255,255,255,0.9);
+    color: var(--dark);
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* Tombol saat hover */
+.carousel-caption .btn:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+/*** CONTROLS ***/
 .carousel-control-prev,
 .carousel-control-next {
     width: 15%;
@@ -181,37 +202,48 @@
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 3.5rem;
-    background-color: var(--dark);
-    border: 15px solid var(--dark);
+    background-color: rgba(0,0,0,0.7);
+    border: 10px solid rgba(0,0,0,0.3);
 }
 
+/*** Mobile ***/
 @media (max-width: 768px) {
     #header-carousel .carousel-item {
         position: relative;
         min-height: 450px;
     }
-    
+
     #header-carousel .carousel-item img {
         position: absolute;
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
+
+    /* Teks lebih kecil di HP */
+    .carousel-caption h1 {
+        font-size: 30px;
+    }
 }
 
+/*** Page Header ***/
 .page-header {
-    background: linear-gradient(rgba(136, 180, 78, .7), rgba(136, 180, 78, .7)), url(../img/carousel-1.jpg) center center no-repeat;
+    background: linear-gradient(
+        rgba(0, 0, 0, .5),
+        rgba(0, 0, 0, .5)
+    ), url(../img/carousel-1.jpg) center center no-repeat;
     background-size: cover;
 }
 
 .page-header .breadcrumb-item+.breadcrumb-item::before {
-    color: var(--light);
+    color: #FFFFFF;
 }
 
 .page-header .breadcrumb-item,
 .page-header .breadcrumb-item a {
     font-size: 18px;
-    color: var(--light);
+    color: #FFFFFF;
+    text-shadow: 0 2px 8px rgba(0,0,0,1);
 }
 
 

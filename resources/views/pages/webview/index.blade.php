@@ -113,21 +113,21 @@
                     </div>
                 </a>
                 <a href="" class="d-block product-item rounded">
-                    <img src="img/product-2.jpg" alt="">
+                    <img src="{{ asset('asset/img/product-2.jpg') }}" alt="">
                     <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
                         <h4 class="text-primary">Black Tea</h4>
                         <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum</span>
                     </div>
                 </a>
                 <a href="" class="d-block product-item rounded">
-                    <img src="img/product-3.jpg" alt="">
+                    <img src="{{ asset('asset/img/product-3.jpg') }}" alt="">
                     <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
                         <h4 class="text-primary">Spiced Tea</h4>
                         <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum</span>
                     </div>
                 </a>
                 <a href="" class="d-block product-item rounded">
-                    <img src="img/product-4.jpg" alt="">
+                    <img src="{{ asset('asset/img/product-4.jpg') }}" alt="">
                     <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
                         <h4 class="text-primary">Organic Tea</h4>
                         <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum</span>
@@ -332,7 +332,7 @@
                 <div class="testimonial-item p-4 p-lg-5">
                     <p class="mb-4">Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo</p>
                     <div class="d-flex align-items-center justify-content-center">
-                        <img class="img-fluid flex-shrink-0" src="img/testimonial-1.jpg" alt="">
+                        <img class="img-fluid flex-shrink-0" src="{{ asset('asset/img/testimonial-1.jpg') }}" alt="">
                         <div class="text-start ms-3">
                             <h5>Client Name</h5>
                             <span class="text-primary">Profession</span>

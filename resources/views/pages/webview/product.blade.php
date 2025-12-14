@@ -15,42 +15,49 @@
         </div>
     </div>
     <!-- Page Header End -->
+
     <!-- Products Start -->
     <div class="container-fluid product py-5">
         <div class="container py-5">
             <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <p class="fs-5 fw-medium fst-italic text-primary">Our Products</p>
-                <h1 class="display-6">Tea has a complex positive effect on the body</h1>
+                <h1 class="display-6">some of our featured products</h1>
             </div>
+
             <div class="owl-carousel product-carousel wow fadeInUp" data-wow-delay="0.5s">
+
                 <a href="" class="d-block product-item rounded">
                     <img src="asset/img/product-1.jpg" alt="">
                     <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">Green Tea</h4>
-                        <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum</span>
+                        <h4 class="text-primary">Bakso Mercon Pedas</h4>
+                        <span class="text-body">Bakso pedas dengan sambal melimpah, rasa kuat dan cocok untuk pecinta makanan pedas.</span>
                     </div>
                 </a>
+
                 <a href="" class="d-block product-item rounded">
                     <img src="asset/img/product-2.jpg" alt="">
                     <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">Black Tea</h4>
-                        <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum</span>
+                        <h4 class="text-primary">Layanan Barbershop</h4>
+                        <span class="text-body">Jasa cukur dan perawatan rambut profesional dengan suasana interior yang elegan dan nyaman.</span>
                     </div>
                 </a>
+
                 <a href="" class="d-block product-item rounded">
                     <img src="asset/img/product-3.jpg" alt="">
                     <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">Spiced Tea</h4>
-                        <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum</span>
+                        <h4 class="text-primary">Sate Ayam Nusantara</h4>
+                        <span class="text-body">Sate ayam dengan bumbu kacang kaya rempah, disajikan bersama ketupat dan acar segar.</span>
                     </div>
                 </a>
+
                 <a href="" class="d-block product-item rounded">
                     <img src="asset/img/product-4.jpg" alt="">
                     <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">Organic Tea</h4>
-                        <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum</span>
+                        <h4 class="text-primary">Kerajinan</h4>
+                        <span class="text-body">Produk kerajinan tangan berkualitas, dibuat dengan detail dan kreativitas tinggi.</span>
                     </div>
                 </a>
+
             </div>
         </div>
     </div>
