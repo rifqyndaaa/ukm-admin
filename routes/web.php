@@ -6,6 +6,7 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WargaController;
+use App\Http\Controllers\PesananController; // ✅ Tambahkan ini
 use Illuminate\Support\Facades\Route;
 
 // ========================
@@ -21,13 +22,15 @@ Route::post('/register', [AuthController::class, 'register'])->name('register.pr
 // ========================
 // PUBLIC PAGES (Semua Bisa Akses)
 // ========================
-Route::get('/', function () { return view('pages.webview.index'); })->name('home');
+Route::get('/', function () {
+    return view('pages.webview.index');
+})->name('home');
+
 Route::view('/about', 'pages.webview.about')->name('about');
 Route::view('/product', 'pages.webview.product')->name('product');
 Route::view('/store', 'pages.webview.store')->name('store');
 Route::view('/blog', 'pages.webview.blog')->name('blog');
 Route::view('/contact', 'pages.webview.contact')->name('contact');
-
 
 // ========================
 // PROTECTED ROUTES (HARUS LOGIN)
@@ -40,11 +43,15 @@ Route::middleware(['auth'])->group(function () {
     })->name('dashboard');
 
     // ========================
+    // PESANAN ROUTES (UNTUK SEMUA ROLE YANG LOGIN)
+    // ========================
+    Route::resource('pesanan', PesananController::class);
+
+    // ========================
     // ADMIN AREA — FULL ACCESS
     // ========================
     Route::middleware(['checkrole:admin'])->group(function () {
-
-         Route::resource('User', UserController::class);
+        Route::resource('User', UserController::class);
         Route::resource('Warga', WargaController::class);
         Route::resource('Umkm', UmkmController::class);
         Route::resource('produk', ProdukController::class);
@@ -63,12 +70,7 @@ Route::middleware(['auth'])->group(function () {
     // USER AREA — akses terbatas
     // ========================
     Route::middleware(['checkrole:user'])->group(function () {
-
-   
-        Route::resource('produk', ProdukController::class);
-        Route::resource('warga', WargaController::class);
+        // Route untuk user biasa (jika ada yang khusus)
+        // Note: Produk dan Warga sudah diakses admin, sesuaikan jika perlu
     });
-
 });
-
-

@@ -29,6 +29,7 @@
                                 <a href="{{ route('User.index') }}" class="dropdown-item {{ request()->routeIs('User.*') ? 'active' : '' }}">User</a>
                                 <a href="{{ route('Umkm.index') }}" class="dropdown-item {{ request()->routeIs('Umkm.*') ? 'active' : '' }}">Umkm</a>
                                 <a href="{{ route('produk.index') }}" class="dropdown-item {{ request()->routeIs('produk.*') ? 'active' : '' }}">Produk</a>
+                                <a href="{{ route('pesanan.index') }}" class="dropdown-item {{ request()->routeIs('pesanan.*') ? 'active' : '' }}">Pesanan</a>
                             </div>
                         </div>
 

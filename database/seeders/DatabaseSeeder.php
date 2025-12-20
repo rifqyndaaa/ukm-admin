@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             CreateUmkmDummySeeder::class,
             CreateProdukDummySeeder::class,
             UserSeeder::class,
+            PesananSeeder::class,
         ]);
     }
 }
