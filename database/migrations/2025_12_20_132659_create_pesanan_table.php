@@ -1,17 +1,16 @@
 <?php
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     public function up(): void
     {
         Schema::create('pesanan', function (Blueprint $table) {
             $table->id('pesanan_id');
             $table->string('nomor_pesanan')->unique();
 
-            // FK ke warga (PK = warga_id)
             $table->unsignedBigInteger('warga_id');
 
             $table->decimal('total', 12, 2);
@@ -23,11 +22,10 @@ return new class extends Migration
 
             $table->timestamps();
 
-            // ✅ FOREIGN KEY BENAR
             $table->foreign('warga_id')
                   ->references('warga_id')
                   ->on('warga')
-                  ->onDelete('cascade');
+                  ->cascadeOnDelete();
         });
     }
 

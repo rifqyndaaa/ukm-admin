@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Pesanan extends Model
 {
-    // ✅ ISI DENGAN NAMA TABEL, BUKAN DATABASE
-    protected $table = 'pesanan'; // ganti jika nama tabel berbeda
+    use HasFactory;
 
+    protected $table = 'pesanan';
     protected $primaryKey = 'pesanan_id';
 
     protected $fillable = [
@@ -19,6 +20,15 @@ class Pesanan extends Model
         'alamat_kirim',
         'rt',
         'rw',
-        'metode_bayar'
+        'metode_bayar',
     ];
+
+    public function detailPesanan()
+    {
+        return $this->hasMany(
+            DetailPesanan::class,
+            'pesanan_id',
+            'pesanan_id'
+        );
+    }
 }

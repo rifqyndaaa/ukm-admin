@@ -14,12 +14,12 @@
             <!-- FILTER FORM -->
             <form method="GET" action="{{ route('pesanan.index') }}" class="mb-4">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-2">
                         <input type="text" name="search" class="form-control"
                                placeholder="Cari nomor/alamat..."
                                value="{{ request('search') }}">
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 mb-2">
                         <select name="status" class="form-control">
                             <option value="">Semua Status</option>
                             <option value="pending" {{ request('status') == 'pending' ? 'selected' : '' }}>Pending</option>
@@ -28,7 +28,7 @@
                             <option value="dibatalkan" {{ request('status') == 'dibatalkan' ? 'selected' : '' }}>Dibatalkan</option>
                         </select>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 mb-2">
                         <select name="metode_bayar" class="form-control">
                             <option value="">Semua Pembayaran</option>
                             <option value="tunai" {{ request('metode_bayar') == 'tunai' ? 'selected' : '' }}>Tunai</option>
@@ -36,7 +36,7 @@
                             <option value="kredit" {{ request('metode_bayar') == 'kredit' ? 'selected' : '' }}>Kredit</option>
                         </select>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 mb-2 d-flex gap-2">
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-search"></i> Filter
                         </button>
@@ -136,7 +136,7 @@
 
             <!-- PAGINATION -->
             <div class="d-flex justify-content-center mt-4">
-                {{ $dataPesanan->links() }}
+                {{ $dataPesanan->links('pagination::bootstrap-5') }}
             </div>
         </div>
     </div>

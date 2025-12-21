@@ -4,31 +4,46 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Pesanan;
+use Illuminate\Support\Facades\DB;
 
 class PesananSeeder extends Seeder
 {
     public function run(): void
     {
-        Pesanan::create([
-            'nomor_pesanan' => 'PSN-001',
-            'warga_id'      => 1,
-            'total'         => 150000,
-            'status'        => 'pending',
-            'alamat_kirim'  => 'Jl. Mawar No. 10',
-            'rt'            => '01',
-            'rw'            => '02',
-            'metode_bayar'  => 'COD'
-        ]);
+        // Hapus data lama, aman untuk foreign key
+        Pesanan::query()->delete();
 
-        Pesanan::create([
-            'nomor_pesanan' => 'PSN-002',
-            'warga_id'      => 2,
-            'total'         => 275000,
-            'status'        => 'diproses',
-            'alamat_kirim'  => 'Jl. Melati No. 5',
-            'rt'            => '03',
-            'rw'            => '04',
-            'metode_bayar'  => 'Transfer'
-        ]);
+        // Reset auto-increment supaya nomor ID mulai dari 1 lagi
+        DB::statement('ALTER TABLE pesanan AUTO_INCREMENT = 1');
+
+        $statusOptions = ['pending', 'lunas', 'dikirim', 'batal'];
+        $metodeBayarOptions = ['transfer', 'cash', 'ovo', 'gopay'];
+        $alamatSample = [
+            'Jl. Merdeka No. 10',
+            'Jl. Sudirman No. 5',
+            'Jl. Thamrin No. 20',
+            'Jl. Gatot Subroto No. 15',
+            'Jl. Asia Afrika No. 8'
+        ];
+
+        $totalWarga = 20; // jumlah warga yang ada
+        $pesananData = [];
+
+        for ($i = 1; $i <= 100; $i++) {
+            $pesananData[] = [
+                'nomor_pesanan' => 'PSN-' . str_pad($i, 3, '0', STR_PAD_LEFT),
+                'warga_id' => rand(1, $totalWarga),
+                'total' => rand(50000, 500000), // total acak antara 50k - 500k
+                'status' => $statusOptions[array_rand($statusOptions)],
+                'alamat_kirim' => $alamatSample[array_rand($alamatSample)],
+                'rt' => str_pad(rand(1, 10), 2, '0', STR_PAD_LEFT),
+                'rw' => str_pad(rand(1, 10), 2, '0', STR_PAD_LEFT),
+                'metode_bayar' => $metodeBayarOptions[array_rand($metodeBayarOptions)],
+            ];
+        }
+
+        foreach ($pesananData as $pesanan) {
+            Pesanan::create($pesanan);
+        }
     }
 }

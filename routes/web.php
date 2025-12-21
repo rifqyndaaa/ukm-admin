@@ -50,8 +50,9 @@ Route::middleware(['auth'])->group(function () {
     // ========================
     // ADMIN AREA — FULL ACCESS
     // ========================
+    Route::resource('User', UserController::class);
     Route::middleware(['checkrole:admin'])->group(function () {
-        Route::resource('User', UserController::class);
+
         Route::resource('Warga', WargaController::class);
         Route::resource('Umkm', UmkmController::class);
         Route::resource('produk', ProdukController::class);
@@ -74,3 +75,17 @@ Route::middleware(['auth'])->group(function () {
         // Note: Produk dan Warga sudah diakses admin, sesuaikan jika perlu
     });
 });
+
+use App\Http\Controllers\DetailPesananController;
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::resource('pesanan', PesananController::class);
+    Route::resource('detail-pesanan', DetailPesananController::class);
+
+});
+
+use App\Http\Controllers\UlasanProdukController;
+
+Route::resource('ulasan-produk', UlasanProdukController::class);
+

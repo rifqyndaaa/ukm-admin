@@ -30,6 +30,8 @@
                                 <a href="{{ route('Umkm.index') }}" class="dropdown-item {{ request()->routeIs('Umkm.*') ? 'active' : '' }}">Umkm</a>
                                 <a href="{{ route('produk.index') }}" class="dropdown-item {{ request()->routeIs('produk.*') ? 'active' : '' }}">Produk</a>
                                 <a href="{{ route('pesanan.index') }}" class="dropdown-item {{ request()->routeIs('pesanan.*') ? 'active' : '' }}">Pesanan</a>
+                                <a href="{{ route('detail-pesanan.index') }}" class="dropdown-item {{ request()->routeIs('detail-pesanan.*') ? 'active' : '' }}">Detail Pesanan</a>
+                                <a href="{{ route('ulasan-produk.index') }}" class="dropdown-item {{ request()->routeIs('ulasan-produk.*') ? 'active' : '' }}">Ulasan Produk</a>
                             </div>
                         </div>
 
