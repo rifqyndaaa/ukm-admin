@@ -1,13 +1,14 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DetailPesananController;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\PesananController;
 use App\Http\Controllers\ProdukController;
-use App\Http\Controllers\UmkmController;
+use App\Http\Controllers\UlasanProdukController;
+use App\Http\Controllers\UmkmController; // ✅ Tambahkan ini
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WargaController;
-use App\Http\Controllers\PesananController; // ✅ Tambahkan ini
-use Illuminate\Support\Facades\Route;
 
 // ========================
 // AUTH ROUTES
@@ -50,9 +51,9 @@ Route::middleware(['auth'])->group(function () {
     // ========================
     // ADMIN AREA — FULL ACCESS
     // ========================
-    Route::resource('User', UserController::class);
-    Route::middleware(['checkrole:admin'])->group(function () {
 
+    Route::middleware(['checkrole:admin'])->group(function () {
+        Route::resource('User', UserController::class);
         Route::resource('Warga', WargaController::class);
         Route::resource('Umkm', UmkmController::class);
         Route::resource('produk', ProdukController::class);
@@ -76,7 +77,7 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
-use App\Http\Controllers\DetailPesananController;
+
 
 Route::middleware(['auth'])->group(function () {
 
@@ -85,7 +86,13 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
-use App\Http\Controllers\UlasanProdukController;
+use Illuminate\Support\Facades\Route;
 
 Route::resource('ulasan-produk', UlasanProdukController::class);
 
+Route::resource('pesanan', PesananController::class);
+
+Route::post(
+    'pesanan/{pesanan_id}/upload-resi',
+    [PesananController::class, 'uploadResi']
+)->name('pesanan.uploadResi');

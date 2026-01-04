@@ -23,6 +23,7 @@ class Pesanan extends Model
         'metode_bayar',
     ];
 
+    // DETAIL PESANAN
     public function detailPesanan()
     {
         return $this->hasMany(
@@ -30,5 +31,15 @@ class Pesanan extends Model
             'pesanan_id',
             'pesanan_id'
         );
+    }
+
+    // MEDIA / BUKTI PEMBAYARAN
+    public function media()
+    {
+        return $this->hasMany(
+            Media::class,
+            'ref_id',
+            'pesanan_id'
+        )->where('ref_table', 'pesanan');
     }
 }

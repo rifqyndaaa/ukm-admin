@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pesanan;
+use App\Models\Media;
 use Illuminate\Http\Request;
 
 class PesananController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Pesanan::query();
+        $query = Pesanan::with('media');
 
-        // SEARCH
         if ($request->filled('search')) {
             $keyword = $request->search;
             $query->where(function ($q) use ($keyword) {
@@ -21,12 +21,10 @@ class PesananController extends Controller
             });
         }
 
-        // FILTER STATUS
         if ($request->filled('status')) {
             $query->where('status', $request->status);
         }
 
-        // FILTER METODE BAYAR
         if ($request->filled('metode_bayar')) {
             $query->where('metode_bayar', $request->metode_bayar);
         }
@@ -58,12 +56,15 @@ class PesananController extends Controller
 
         Pesanan::create($request->all());
 
-        return redirect()->route('pesanan.index')->with('success', 'Pesanan berhasil ditambahkan!');
+        return redirect()->route('pesanan.index')
+            ->with('success', 'Pesanan berhasil ditambahkan!');
     }
 
     public function show(string $id)
     {
-        $pesanan = Pesanan::findOrFail($id);
+        $pesanan = Pesanan::with(['media', 'detailPesanan'])
+                    ->findOrFail($id);
+
         return view('pages.pesanan.show', compact('pesanan'));
     }
 
@@ -90,14 +91,37 @@ class PesananController extends Controller
 
         $pesanan->update($request->all());
 
-        return redirect()->route('pesanan.index')->with('success', 'Pesanan berhasil diperbarui!');
+        return redirect()->route('pesanan.index')
+            ->with('success', 'Pesanan berhasil diperbarui!');
     }
 
     public function destroy(string $id)
     {
-        $pesanan = Pesanan::findOrFail($id);
-        $pesanan->delete();
+        Pesanan::findOrFail($id)->delete();
 
-        return redirect()->route('pesanan.index')->with('success', 'Pesanan berhasil dihapus!');
+        return redirect()->route('pesanan.index')
+            ->with('success', 'Pesanan berhasil dihapus!');
+    }
+
+    // UPLOAD RESI PEMBAYARAN
+    public function uploadResi(Request $request, $pesanan_id)
+    {
+        $request->validate([
+            'resi' => 'required|image|mimes:jpg,jpeg,png|max:2048'
+        ]);
+
+        $file = $request->file('resi');
+        $path = $file->store('resi_pembayaran', 'public');
+
+        Media::create([
+            'ref_table' => 'pesanan',
+            'ref_id'    => $pesanan_id,
+            'file_url'  => $path,
+            'caption'   => 'Bukti Pembayaran',
+            'mime_type' => $file->getClientMimeType(),
+            'sort_order'=> 1,
+        ]);
+
+        return back()->with('success', 'Resi berhasil diupload');
     }
 }

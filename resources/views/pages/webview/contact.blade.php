@@ -53,7 +53,7 @@
                                             </div>
                                             <div>
                                                 <p class="mb-0 text-muted">NIM</p>
-                                                <p class="mb-0 fw-semibold">2457301134</p>
+                                                <p class="mb-0 fw-semibold">2457301124</p>
                                             </div>
                                         </div>
                                     </div>
@@ -74,8 +74,8 @@
                                                 <i class="fas fa-university text-white"></i>
                                             </div>
                                             <div>
-                                                <p class="mb-0 text-muted">Universitas</p>
-                                                <p class="mb-0 fw-semibold">Bina Sarana Informatika</p>
+                                                <p class="mb-0 text-muted">politeknik</p>
+                                                <p class="mb-0 fw-semibold">caltex riau</p>
                                             </div>
                                         </div>
                                     </div>
@@ -86,7 +86,7 @@
                                             </div>
                                             <div>
                                                 <p class="mb-0 text-muted">Lokasi</p>
-                                                <p class="mb-0 fw-semibold">Jakarta, Indonesia</p>
+                                                <p class="mb-0 fw-semibold">pekanbaru, Indonesia</p>
                                             </div>
                                         </div>
                                     </div>

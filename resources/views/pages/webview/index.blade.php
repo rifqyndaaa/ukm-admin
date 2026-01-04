@@ -50,46 +50,91 @@
     <!-- Carousel End -->
 
 
-    <!-- About Start -->
-    <div class="container-xxl py-5">
+     <div class="container-xxl py-5">
         <div class="container">
-            <div class="row g-5">
+            <div class="row g-5 align-items-center">
+                <!-- Gallery Section -->
                 <div class="col-lg-6">
                     <div class="row g-3">
                         <div class="col-6 text-end">
-                            <img class="img-fluid bg-white w-100 mb-3 wow fadeIn" data-wow-delay="0.1s" src="{{ asset('asset/img/about-1.jpg') }}" alt="">
-                            <img class="img-fluid bg-white w-50 wow fadeIn" data-wow-delay="0.2s" src="{{ asset('asset/img/about-3.jpg') }}" alt="">
+                            <div class="position-relative overflow-hidden rounded-4 mb-3 wow fadeIn" data-wow-delay="0.1s">
+                                <img class="img-fluid w-100 object-fit-cover bg-white shadow-sm"
+                                     src="asset/img/about-1.jpg"
+                                     alt="Produk UMKM 1"
+                                     style="height: 280px;">
+                            </div>
+                            <div class="position-relative overflow-hidden rounded-4 wow fadeIn" data-wow-delay="0.2s">
+                                <img class="img-fluid w-50 object-fit-cover bg-white shadow-sm"
+                                     src="asset/img/about-3.jpg"
+                                     alt="Produk UMKM 3"
+                                     style="height: 200px;">
+                            </div>
                         </div>
                         <div class="col-6">
-                            <img class="img-fluid bg-white w-50 mb-3 wow fadeIn" data-wow-delay="0.3s" src="{{ asset('asset/img/about-4.jpg') }}" alt="">
-                            <img class="img-fluid bg-white w-100 wow fadeIn" data-wow-delay="0.4s" src="{{ asset('asset/img/about-2.jpg') }}" alt="">
+                            <div class="position-relative overflow-hidden rounded-4 mb-3 wow fadeIn" data-wow-delay="0.3s">
+                                <img class="img-fluid w-50 object-fit-cover bg-white shadow-sm"
+                                     src="asset/img/about-4.JPEG"
+                                     alt="Produk UMKM 4"
+                                     style="height: 200px;">
+                            </div>
+                            <div class="position-relative overflow-hidden rounded-4 wow fadeIn" data-wow-delay="0.4s">
+                                <img class="img-fluid w-100 object-fit-cover bg-white shadow-sm"
+                                     src="asset/img/about-2.jpg"
+                                     alt="Produk UMKM 2"
+                                     style="height: 280px;">
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Content Section -->
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="section-title">
-                        <p class="fs-5 fw-medium fst-italic text-primary">About Us</p>
-                        <h1 class="display-6">The success history of TEA House in 25 years</h1>
+                    <div class="section-title mb-5">
+                        <p class="fs-5 fw-medium fst-italic text-primary">Tentang Usaha</p>
+                        <h1 class="display-6 mb-4">
+                            Lapak UMKM: Lebih Dari Sekadar Tempat Berbelanja
+                        </h1>
+                        <p class="lead lh-base text-muted mb-0">
+                            Kami adalah ruang bagi kreativitas dan keahlian pengrajin lokal. Setiap produk dipilih
+                            dengan teliti, tidak hanya untuk menampilkan kualitas tinggi dan keindahan, tetapi juga
+                            untuk menceritakan dedikasi dan inovasi di baliknya. Dari desain hingga detail terakhir,
+                            setiap item menghadirkan keseimbangan antara estetika, fungsi, dan identitas budaya.
+                        </p>
                     </div>
-                    <div class="row g-3 mb-4">
+
+                    <!-- First Feature -->
+                    <div class="row g-4 mb-5">
                         <div class="col-sm-4">
-                            <img class="img-fluid bg-white w-100" src="{{ asset('asset/img/about-5.jpg') }}" alt="">
+                            <img class="img-fluid bg-white w-100 rounded-3 shadow"
+                                 src="asset/img/about-5.jpg"
+                                 alt="Hidangan Tradisional">
                         </div>
                         <div class="col-sm-8">
-                            <h5>Our tea is one of the most popular drinks in the world</h5>
-                            <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit</p>
+                            <h5 class="fw-bold">Hidangan Tradisional dengan Sentuhan Berkelas</h5>
+                            <p class="mb-0 text-muted lh-base">
+                                Setiap hidangan kami adalah warisan rasa yang terjaga: dibuat dari bahan terbaik,
+                                diracik dengan kehangatan rumah, dan disajikan dengan nuansa elegan yang memanjakan hati.
+                            </p>
                         </div>
                     </div>
-                    <div class="border-top mb-4"></div>
-                    <div class="row g-3">
+
+                    <!-- Second Feature -->
+                    <div class="row g-4">
                         <div class="col-sm-8">
-                            <h5>Daily use of a cup of tea is good for your health</h5>
-                            <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit</p>
+                            <h5 class="fw-bold">Batik: Puisi yang Ditulis di Atas Kain</h5>
+                            <p class="mb-0 text-muted lh-base">
+                                Batik bagi kami bukan sekadar busana—ia adalah cerita yang ditorehkan dengan hening,
+                                dirajut oleh tangan-tangan yang sabar, dan diwariskan melalui motif penuh makna.
+                                Setiap helai kainnya memancarkan keanggunan yang megah dalam filosofi yang tersimpan di dalamnya.
+                            </p>
                         </div>
                         <div class="col-sm-4">
-                            <img class="img-fluid bg-white w-100" src="{{ asset('asset/img/about-6.jpg') }}" alt="">
+                            <img class="img-fluid bg-white w-100 rounded-3 shadow"
+                                 src="{{ asset('asset/img/about-6.jpg') }}"
+                                 alt="Batik Premium">
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
