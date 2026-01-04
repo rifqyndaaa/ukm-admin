@@ -69,7 +69,7 @@
         <div class="col-lg-6 logo-side">
             <!-- Background Image -->
             <img class="background-image"
-                 src="asset/img/about-5.JPEG"
+                 src="asset/img/about-5.jpeg"
                  alt="Hidangan Tradisional">
 
             <!-- Overlay untuk Logo -->
