@@ -30,7 +30,7 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="store-item position-relative text-center">
-                        <img class="img-fluid" src="asset/img/store-product-1.JPEG" alt="">
+                        <img class="img-fluid" src="asset/img/store-product-1.jpeg" alt="">
                         <div class="p-4">
                             <div class="text-center mb-3">
                                 <small class="fa fa-star text-primary"></small>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="store-item position-relative text-center">
-                        <img class="img-fluid" src="asset/img/store-product-2.JPEG" alt="">
+                        <img class="img-fluid" src="asset/img/store-product-2.jpeg" alt="">
                         <div class="p-4">
                             <div class="text-center mb-3">
                                 <small class="fa fa-star text-primary"></small>
@@ -72,7 +72,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="store-item position-relative text-center">
-                        <img class="img-fluid" src="asset/img/store-product-3.JPEG" alt="">
+                        <img class="img-fluid" src="asset/img/store-product-3.jpeg" alt="">
                         <div class="p-4">
                             <div class="text-center mb-3">
                                 <small class="fa fa-star text-primary"></small>

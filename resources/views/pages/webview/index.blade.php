@@ -106,7 +106,7 @@
                     <div class="row g-4 mb-5">
                         <div class="col-sm-4">
                             <img class="img-fluid bg-white w-100 rounded-3 shadow"
-                                 src="asset/img/about-5.jpg"
+                                 src="asset/img/about-5.jpeg"
                                  alt="Hidangan Tradisional">
                         </div>
                         <div class="col-sm-8">
@@ -153,29 +153,29 @@
                 <a href="" class="d-block product-item rounded">
                     <img src="{{ asset('asset/img/product-1.jpg') }}" alt="">
                     <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">Green Tea</h4>
-                        <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum</span>
+                        <h4 class="text-primary">Bakso Mercon Pedas</h4>
+                        <span class="text-body">Bakso pedas dengan sambal melimpah, rasa kuat dan cocok untuk pecinta makanan pedas.</span>
                     </div>
                 </a>
                 <a href="" class="d-block product-item rounded">
                     <img src="{{ asset('asset/img/product-2.jpg') }}" alt="">
                     <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">Black Tea</h4>
-                        <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum</span>
+                        <h4 class="text-primary">Layanan Barbershop</h4>
+                        <span class="text-body">Jasa cukur dan perawatan rambut profesional dengan suasana interior yang elegan dan nyaman</span>
                     </div>
                 </a>
                 <a href="" class="d-block product-item rounded">
                     <img src="{{ asset('asset/img/product-3.jpg') }}" alt="">
                     <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">Spiced Tea</h4>
-                        <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum</span>
+                        <h4 class="text-primary">Sate Ayam Nusantara</h4>
+                        <span class="text-body">Sate ayam dengan bumbu kacang kaya rempah, disajikan bersama ketupat dan acar segar</span>
                     </div>
                 </a>
                 <a href="" class="d-block product-item rounded">
                     <img src="{{ asset('asset/img/product-4.jpg') }}" alt="">
                     <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">Organic Tea</h4>
-                        <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum</span>
+                        <h4 class="text-primary">Kerajinan</h4>
+                        <span class="text-body">Produk kerajinan tangan berkualitas, dibuat dengan detail dan kreativitas tinggi</span>
                     </div>
                 </a>
             </div>
@@ -196,74 +196,15 @@
                         <p class="fs-5 fw-medium fst-italic text-primary">Featured Acticle</p>
                         <h1 class="display-6">The history of tea leaf in the world</h1>
                     </div>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                    <p class="mb-4">Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna. Tempor erat elitr rebum at clita.</p>
+                    <p class="mb-4">Peran UMKM dalam Mendorong Perekonomian Lokal
+UMKM memiliki peran penting dalam meningkatkan kesejahteraan masyarakat dan membuka lapangan kerja. Melalui kreativitas dan inovasi, UMKM mampu menghadirkan produk berkualitas yang bernilai lokal dan berdaya saing.</p>
+                    <p class="mb-4">Dengan dukungan teknologi dan pemasaran digital, UMKM kini dapat menjangkau pasar yang lebih luas. Website menjadi salah satu sarana efektif untuk memperkenalkan produk, membangun kepercayaan pelanggan, dan mengembangkan usaha secara berkelanjutan.</p>
                     <a href="" class="btn btn-primary rounded-pill py-3 px-5">Read More</a>
                 </div>
             </div>
         </div>
     </div>
     <!-- Article End -->
-
-
-    <!-- Video Start -->
-    <div class="container-fluid video my-5">
-        <div class="container">
-            <div class="row g-0">
-                <div class="col-lg-6 py-5 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="py-5">
-                        <h1 class="display-6 mb-4">Tea is a drink of <span class="text-white">health</span> and <span class="text-white">beauty</span></h1>
-                        <h5 class="fw-normal lh-base fst-italic text-white mb-5">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit</h5>
-                        <div class="row g-4 mb-5">
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 btn-lg-square bg-white text-primary rounded-circle me-3">
-                                        <i class="fa fa-check"></i>
-                                    </div>
-                                    <span class="text-dark">Great tea assortment</span>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 btn-lg-square bg-white text-primary rounded-circle me-3">
-                                        <i class="fa fa-check"></i>
-                                    </div>
-                                    <span class="text-dark">Spices & additives</span>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 btn-lg-square bg-white text-primary rounded-circle me-3">
-                                        <i class="fa fa-check"></i>
-                                    </div>
-                                    <span class="text-dark">Unique accessories</span>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 btn-lg-square bg-white text-primary rounded-circle me-3">
-                                        <i class="fa fa-check"></i>
-                                    </div>
-                                    <span class="text-dark">Good for health & beauty</span>
-                                </div>
-                            </div>
-                        </div>
-                        <a class="btn btn-light rounded-pill py-3 px-5" href="">Explore More</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="h-100 d-flex align-items-center justify-content-center" style="min-height: 300px;">
-                        <button type="button" class="btn-play" data-bs-toggle="modal"
-                            data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
-                            <span></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Video End -->
-
 
     <!-- Video Modal Start -->
     <div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -284,19 +225,17 @@
         </div>
     </div>
     <!-- Video Modal End -->
-
-
     <!-- Store Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <p class="fs-5 fw-medium fst-italic text-primary">Online Store</p>
-                <h1 class="display-6">Want to stay healthy? Choose tea taste</h1>
+                <h1 class="display-6">bebapa toko online yang tersedia</h1>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="store-item position-relative text-center">
-                        <img class="img-fluid" src="{{ asset('asset/img/store-product-1.jpg') }}" alt="">
+                        <img class="img-fluid" src="asset/img/store-product-1.jpeg" alt="">
                         <div class="p-4">
                             <div class="text-center mb-3">
                                 <small class="fa fa-star text-primary"></small>
@@ -305,7 +244,7 @@
                                 <small class="fa fa-star text-primary"></small>
                                 <small class="fa fa-star text-primary"></small>
                             </div>
-                            <h4 class="mb-3">Nature close tea</h4>
+                            <h4 class="mb-3">toko obatan</h4>
                             <p>Aliqu diam amet diam et eos. Clita erat ipsum lorem erat ipsum lorem sit sed</p>
                             <h4 class="text-primary">$19.00</h4>
                         </div>
@@ -317,7 +256,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="store-item position-relative text-center">
-                        <img class="img-fluid" src="{{ asset('asset/img/store-product-2.jpg') }}" alt="">
+                        <img class="img-fluid" src="asset/img/store-product-2.jpeg" alt="">
                         <div class="p-4">
                             <div class="text-center mb-3">
                                 <small class="fa fa-star text-primary"></small>
@@ -326,7 +265,7 @@
                                 <small class="fa fa-star text-primary"></small>
                                 <small class="fa fa-star text-primary"></small>
                             </div>
-                            <h4 class="mb-3">Green tea tulsi</h4>
+                            <h4 class="mb-3">toko buah</h4>
                             <p>Aliqu diam amet diam et eos. Clita erat ipsum lorem erat ipsum lorem sit sed</p>
                             <h4 class="text-primary">$19.00</h4>
                         </div>
@@ -338,7 +277,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="store-item position-relative text-center">
-                        <img class="img-fluid" src="{{ asset('asset/img/store-product-3.jpg') }}" alt="">
+                        <img class="img-fluid" src="asset/img/store-product-3.jpeg" alt="">
                         <div class="p-4">
                             <div class="text-center mb-3">
                                 <small class="fa fa-star text-primary"></small>
@@ -347,7 +286,7 @@
                                 <small class="fa fa-star text-primary"></small>
                                 <small class="fa fa-star text-primary"></small>
                             </div>
-                            <h4 class="mb-3">Instant tea premix</h4>
+                            <h4 class="mb-3">Gerai majalah</h4>
                             <p>Aliqu diam amet diam et eos. Clita erat ipsum lorem erat ipsum lorem sit sed</p>
                             <h4 class="text-primary">$19.00</h4>
                         </div>
@@ -371,35 +310,38 @@
         <div class="container py-5">
             <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <p class="fs-5 fw-medium fst-italic text-white">Testimonial</p>
-                <h1 class="display-6">What our clients say about our tea</h1>
+                <h1 class="display-6">apa saja pendapat anda menegnai website kami</h1>
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.5s">
                 <div class="testimonial-item p-4 p-lg-5">
-                    <p class="mb-4">Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo</p>
+                    <p class="mb-4">Website membantu UMKM terlihat lebih profesional
+Dengan website, UMKM tampak lebih terpercaya dan serius di mata pelanggan dibandingkan hanya mengandalkan media sosial.</p>
                     <div class="d-flex align-items-center justify-content-center">
                         <img class="img-fluid flex-shrink-0" src="{{ asset('asset/img/testimonial-1.jpg') }}" alt="">
                         <div class="text-start ms-3">
-                            <h5>Client Name</h5>
+                            <h5>abinay</h5>
                             <span class="text-primary">Profession</span>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-item p-4 p-lg-5">
-                    <p class="mb-4">Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo</p>
+                    <p class="mb-4">Website memudahkan promosi dan penjualan
+Produk, harga, dan informasi usaha bisa diakses kapan saja sehingga pelanggan lebih mudah menemukan dan membeli produk UMKM.</p>
                     <div class="d-flex align-items-center justify-content-center">
                         <img class="img-fluid flex-shrink-0" src="{{ asset('asset/img/testimonial-2.jpg') }}" alt="">
                         <div class="text-start ms-3">
-                            <h5>Client Name</h5>
+                            <h5>sukra alhamda</h5>
                             <span class="text-primary">Profession</span>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-item p-4 p-lg-5">
-                    <p class="mb-4">Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo</p>
+                    <p class="mb-4">Website memperluas jangkauan pasar
+UMKM tidak hanya dikenal di lingkungan sekitar, tetapi juga bisa menjangkau pelanggan dari daerah lain bahkan nasional.</p>
                     <div class="d-flex align-items-center justify-content-center">
                         <img class="img-fluid flex-shrink-0" src="{{ asset('asset/img/testimonial-3.jpg') }}" alt="">
                         <div class="text-start ms-3">
-                            <h5>Client Name</h5>
+                            <h5>arya ibrahim </h5>
                             <span class="text-primary">Profession</span>
                         </div>
                     </div>
@@ -419,28 +361,28 @@
             </div>
             <div class="row justify-content-center wow fadeInUp" data-wow-delay="0.1s">
                 <div class="col-lg-8">
-                    <p class="text-center mb-5">Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo</p>
+                    <p class="text-center mb-5">Untuk informasi produk, pemesanan, dan kerja sama, silakan hubungi kami melalui kontak yang tersedia. Kami siap melayani Anda dengan cepat dan profesional.</p>
                     <div class="row g-5">
                         <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="0.3s">
                             <div class="btn-square mx-auto mb-3">
                                 <i class="fa fa-envelope fa-2x text-white"></i>
                             </div>
-                            <p class="mb-2">info@example.com</p>
-                            <p class="mb-0">support@example.com</p>
+                            <p class="mb-2">rifqi@gmail.com</p>
+                            <p class="mb-0">yanda@gmail.com</p>
                         </div>
                         <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="0.4s">
                             <div class="btn-square mx-auto mb-3">
                                 <i class="fa fa-phone fa-2x text-white"></i>
                             </div>
-                            <p class="mb-2">+012 345 67890</p>
-                            <p class="mb-0">+012 345 67890</p>
+                            <p class="mb-2">+081378271981</p>
+                            <p class="mb-0">087136373822</p>
                         </div>
                         <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="0.5s">
                             <div class="btn-square mx-auto mb-3">
                                 <i class="fa fa-map-marker-alt fa-2x text-white"></i>
                             </div>
-                            <p class="mb-2">123 Street</p>
-                            <p class="mb-0">New York, USA</p>
+                            <p class="mb-2">12 Umban Sari atas,</p>
+                            <p class="mb-0"> Pekanbaru, indonesia</p>
                         </div>
                     </div>
                 </div>

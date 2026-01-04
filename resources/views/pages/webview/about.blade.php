@@ -57,7 +57,7 @@
                     <div class="row g-4 mb-5">
                         <div class="col-sm-4">
                             <img class="img-fluid bg-white w-100 rounded-3 shadow"
-                                 src="asset/img/about-5.jpg"
+                                 src="asset/img/about-5.jpeg"
                                  alt="Hidangan Tradisional">
                         </div>
                         <div class="col-sm-8">
