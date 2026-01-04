@@ -24,7 +24,7 @@
                         <div class="col-6">
                             <div class="position-relative overflow-hidden rounded-4 mb-3 wow fadeIn" data-wow-delay="0.3s">
                                 <img class="img-fluid w-50 object-fit-cover bg-white shadow-sm"
-                                     src="asset/img/about-4.JPEG"
+                                     src="asset/img/about-4.jpeg"
                                      alt="Produk UMKM 4"
                                      style="height: 200px;">
                             </div>

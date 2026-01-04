@@ -73,7 +73,7 @@
                         <div class="col-6">
                             <div class="position-relative overflow-hidden rounded-4 mb-3 wow fadeIn" data-wow-delay="0.3s">
                                 <img class="img-fluid w-50 object-fit-cover bg-white shadow-sm"
-                                     src="asset/img/about-4.JPEG"
+                                     src="asset/img/about-4.jpeg"
                                      alt="Produk UMKM 4"
                                      style="height: 200px;">
                             </div>
@@ -189,7 +189,7 @@
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
-                    <img class="img-fluid" src="{{ asset('asset/img/article.jpg') }}" alt="">
+                    <img class="img-fluid" src="{{ asset('asset/img/article.jpeg') }}" alt="">
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <div class="section-title">

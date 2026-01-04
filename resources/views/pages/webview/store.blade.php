@@ -7,7 +7,7 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container text-center py-5">
-            <h1 class="display-2 text-dark mb-4 animated slideInDown">Tea Store</h1>
+            <h1 class="display-2 text-dark mb-4 animated slideInDown">Store</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb justify-content-center mb-0">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -40,7 +40,7 @@
                                 <small class="fa fa-star text-primary"></small>
                             </div>
                             <h4 class="mb-3">toko obatan</h4>
-                            <p>Aliqu diam amet diam et eos. Clita erat ipsum lorem erat ipsum lorem sit sed</p>
+                            <p>Toko Obat Sehat adalah UMKM yang menyediakan berbagai obat-obatan, vitamin, dan produk kesehatan yang aman dan terpercaya. Kami berkomitmen memberikan pelayanan ramah serta membantu masyarakat memenuhi kebutuhan kesehatan sehari-hari dengan mudah dan terjangkau.</p>
                             <h4 class="text-primary">$19.00</h4>
                         </div>
                         <div class="store-overlay">
@@ -61,7 +61,7 @@
                                 <small class="fa fa-star text-primary"></small>
                             </div>
                             <h4 class="mb-3">toko buah</h4>
-                            <p>Aliqu diam amet diam et eos. Clita erat ipsum lorem erat ipsum lorem sit sed</p>
+                            <p>Toko Buah Segar merupakan UMKM yang menyediakan aneka buah lokal dan impor dengan kualitas terbaik dan kesegaran terjaga. Kami hadir untuk memenuhi kebutuhan buah sehat masyarakat dengan harga terjangkau.</p>
                             <h4 class="text-primary">$19.00</h4>
                         </div>
                         <div class="store-overlay">
@@ -82,7 +82,7 @@
                                 <small class="fa fa-star text-primary"></small>
                             </div>
                             <h4 class="mb-3">Gerai majalah </h4>
-                            <p>Aliqu diam amet diam et eos. Clita erat ipsum lorem erat ipsum lorem sit sed</p>
+                            <p>Gerai Majalah adalah UMKM yang menyediakan berbagai majalah, tabloid, dan bacaan populer yang informatif dan menghibur. Kami berkomitmen menjadi sumber bacaan terpercaya bagi semua kalangan.</p>
                             <h4 class="text-primary">$19.00</h4>
                         </div>
                         <div class="store-overlay">
